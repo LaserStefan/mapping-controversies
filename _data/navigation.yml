@@ -4,5 +4,5 @@ main:
     url: /
   - title: "Notebooks"
     url: /nb/
-  - title: "Bsp"
+  - title: "Beispiele"
     url: /examples/
