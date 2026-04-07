@@ -4,21 +4,44 @@ layout: single
 title: 1.1. Intro to Tableau software
 ---
 
-**Duration: 30 min**
+Was wir hier einüben:
+[DATENQUELLEN]
+Wikipedia-Kategorie       Toolforge: Wikipedia Page Views
+        │                              │
+        ▼                              ▼
+(J. Notebook: Kategorie    (Abruf der Seitenaufrufe
+ → Artikelliste)            als CSV)
+        │                              │
+        └──────────┬───────────────────┘
+                   ▼
+[AUFBEREITUNG]
+Artikelliste + Seitenaufrufe-CSV
+                   │
+                   ▼
+        ╔══════════════════════════════════╗
+        ║  TABLEAU: Zeitstrahl der         ║
+        ║  Seitenaufrufe                   ║
+        ╚══════════════════════════════════╝
+                   │
+[VISUALISIERUNG]
+Zeitstrahl-Diagramm (Bild)
+                   │
+                   ▼
+        ╔══════════════════════════════════╗
+        ║  ANNOTATION (manuell)            ║
+        ╚══════════════════════════════════╝
+                   │
+[INTERPRETATION]
+Annotierte Visualisierung
+→ Kontrovers-Atlas
 
-[
-	![Overview tuto 1.1](../assets/images/1-1.jpg)
-](../assets/images/1-1.jpg)
-
-**Goals**
-* Learn how to use Google Slides to **annotate a visualization**
-* Discover **Tableau Desktop**, a visualization tool
-* Make an annotated visualization, and share it
+**Ziele**
+* Arbeit mit **Tableau Desktop**, einer populären Visualisierungs-Software
+* Die Annotation eines Ergebnisses
 
 **You need**
-* Tableau Desktop installed on your computer
-* A Tableau Desktop license
-* A Google account to use Google Slides
+* Tableau Desktop 
+* Zugang zu einer Slide-Software
 
 # Case
 
@@ -131,7 +154,7 @@ Keep somewhere, for sharing, the following document:
 
 ---
 
-### Additional resources
+### Weitere Resources
 
 * [An intro to Tableau in 23 minutes](https://www.youtube.com/watch?v=jEgVto5QME8)
 * An example of [Tableau visualizations annotated in Google Slides](https://docs.google.com/presentation/d/1WFBRnr-USNOybHRmKWfGwpOffqFH8PB_SfzDQuBwKI0/edit?usp=sharing), looking into "OK Boomer" on Twitter, during the DMI Winter School 2022

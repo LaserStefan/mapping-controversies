@@ -2,21 +2,21 @@
 
 # Mapping Controversies
 
-This repository contains the website data.
+Das ist ein Repo für den Kontroversen-Mapping-Kurs zu KI. Es ist ein Klon, vereinfacht im Inhalt und übersetzt, von https://jacomyma.github.io/mapping-controversies/.
 
-### Browse
+### Die Website
 
-[https://jacomyma.github.io/mapping-controversies/](https://jacomyma.github.io/mapping-controversies/)
+[https://laserstefan.github.io/mapping-controversies/](https://laserstefan.github.io/mapping-controversies/)
 
 ### Edit
 
-Edit pages in markdown in the ```/_pages``` folder, and images etc. in the ```/assets``` folder.
+Für den Nachbau: ```/_pages``` anpassen, Bilder und Materialien liegen unter ```/assets```.
 
 ### Theme
 
-We use [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/).
+Die Seite basiert auf[Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) und die entsprechende Pages-Action ist eingestellt. Das Hosting auf GitHub ist so kostenlos.
 
-### License
+### License (von Jacomya übernommen)
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
