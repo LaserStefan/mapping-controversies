@@ -15,66 +15,51 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 
 ## Übersicht
 
-Alle Workflows:
-DATENQUELLE → AUFBEREITUNG → VISUALISIERUNG → INTERPRETATION
-──────────────────────────────────────────────────────────────
-1. Bearbeitungs-Zeitstrahl Bearbeit.-CSV  → TABLEAU  → Annotation
-2. Seitenaufruf-Zeitstrahl Seitenaufrufe → TABLEAU   → Annotation
-3. Hyperlink-Netzwerk      Artikelliste  → GEPHI     → Annotation
-4. Ko-Referenz-Netzwerk    Artikelliste  → GEPHI     → Annotation
-5. Artikel-Redakteur-Netz  Artikelliste  → GEPHI     → Annotation
+| # | Workflow | Datenquelle | Aufbereitung | Visualisierung | Interpretation | Module |
+|---|---|---|---|---|---|---|
+| 1 | Bearbeitungs-Zeitstrahl | Bearbeitungs-CSV | J. Notebook | TABLEAU | Annotation | 1.1, 1.2, 1.3, 1.4, 1.5 |
+| 2 | Seitenaufruf-Zeitstrahl | Seitenaufrufe-CSV | J. Notebook | TABLEAU | Annotation | 1.1, 1.2, 1.3, 1.4, 1.5 |
+| 3 | Hyperlink-Netzwerk | Artikelliste | J. Notebook | GEPHI | Annotation | 1.3, 1.4, 2.1, 2.3, 2.5 |
+| 4 | Ko-Referenz-Netzwerk | Artikelliste | J. Notebook | GEPHI | Annotation | 1.3, 1.4, 2.1, 2.3, 2.5 |
+| 5 | Artikel-Redakteur-Netz | Artikelliste | J. Notebook | GEPHI | Annotation | 1.3, 1.4, 2.2, 2.4, 2.5 |
 
 
 ### Übungen Teil 1: Visualisierungen erstellen und Daten abrufen (Tableau und Notebook)
-
 **[1.1. Tableau Einstieg](1.1/)**
-<br>Mit Tableau Daten aufbereiten and via Slides annotieren.
-<br>*30 min. Necessary.*
+<br>Daten mit Tableau aufbereiten und via Slides annotieren.
 
-**[1.2. Tableau-Vertiefung](1.2/)**
-<br>Visualisierungen mit einem anderen Fokus.
-<br>*30 min. Necessary.*
+**[1.2. Tableau Vertiefung](1.2/)**
+<br>Visualisierungen mit einem anderen Fokus erstellen.
 
-**[1.3. Harvest a dataset](1.3/)**
-<br>Just a short introduction to data harvesting.
-<br>*15 min. Necessary.*
+**[1.3. Datensatz erheben](1.3/)**
+<br>Kurze Einführung in die Datenerhebung.
 
-**[1.4. Harvest data with a notebook](1.4/)**
-<br>Tutorial for Google Colab (Jupyter notebooks).
-<br>*30 min. Necessary and very important.*
+**[1.4. Daten mit einem Notebook erheben](1.4/)**
+<br>Tutorial für Google Colab (Jupyter Notebooks).
 
-**[1.5. Activate your knowledge about Tableau](1.5/)**
-<br>Exercise: activate what you have learned.
-<br>*30 min. Optional but recommended. You should at least check that you are capable of making a meaningful annotated visualization from scratch (including harvesting).*
+**[1.5. Tableau: Alles zusammenbringen](1.5/)**
+<br>Vom Datensatz zur annotierten Visualisierung – auf eigene Faust.
 
-
-### Übungen Teil 2: Netzwerke visualisieren (Gephi und Notebooks)
-
+### Teil 2: Netzwerke visualisieren (Gephi und Notebooks)
 
 **[2.1. Gephi 101 Cluster](2.1/)**
-<br>Tutorial for Gephi.
-<br>*45 min. Necessary.*
+<br>Einstieg in Gephi anhand eines Beispieldatensatzes.
 
-**[2.2. Ein bipartite network](2.2/)**
-<br>Tutorial for Gephi (bipartite networks).
-<br>*30 min. Necessary, but you can skim through it if you're comfortable with the tool.*
+**[2.2. Ein bipartites Netzwerk](2.2/)**
+<br>Bipartite Netzwerke verstehen und in Gephi visualisieren.
 
-**[2.3. Visualize a weighted network](2.3/)**
-<br>Exercise: activate what you have learned about Gephi.
-<br>*15 min. Optional.*
+**[2.3. Ein gewichtetes Netzwerk visualisieren](2.3/)**
+<br>Gephi mit einem gewichteten Netzwerk ausprobieren.
 
-**[2.4. From data to network with Table2Net](2.4/)**
-<br>Tutorial for Table2Net and a knowledge activation exercise.
-<br>*45 min. You need to know how to use Table2Net but the exercise is ultimately optional.*
+**[2.4. Von Daten zum Netzwerk mit Table2Net](2.4/)**
+<br>Mit Table2Net aus einer Tabelle ein Netzwerk bauen.
 
-**[2.5. Activate your knowledge about Gephi](2.5/)**
-<br>Knowledge activation exercise.
-<br>*45 min. Optional but recommended. You should at least check that you understand how and why to visualize networks.*
-
+**[2.5. Gephi: Alles zusammenbringen](2.5/)**
+<br>Ein eigenes Netzwerk von Grund auf aufbauen und analysieren.
 
 
 ## Resources
-* [List of included Jupyter notebooks](nb/)
+* [Jupyter notebooks](nb/)
 
 ## License
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
