@@ -11,7 +11,7 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 remote_theme           : "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin    : "sunrise" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -101,7 +101,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Anders K. Munk & Mathieu Jacomy"
+  name             : "Stefan Laser"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              :
   location         :
@@ -109,7 +109,7 @@ author:
   links:
     - label: "GitHub repository"
       icon: "fas fa-fw fa-link"
-      url: "https://github.com/jacomyma/mapping-controversies"
+      url: "https://github.com/laserstefan/mapping-controversies"
     - label: "1.1. Intro to Tableau software"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.1/"
@@ -125,54 +125,21 @@ author:
     - label: "1.5. Harvest a dataset"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.5/"
-    - label: "1.6. Harvest data with a notebook…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/1.6/"
-    - label: "1.7. Activate your knowledge…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/1.7/"
-    - label: "1.8. Intro to Gephi & Visualize…"
+    - label: "2.1. Intro to Gephi & Visualize…"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.8/"
-    - label: "1.9. Visualize a bipartite network"
+    - label: "2.2. Visualize a bipartite network"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.9/"
-    - label: "1.10. Visualize a weighted network"
+    - label: "2.3. Visualize a weighted network"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.10/"
-    - label: "1.11. From data to network with…"
+    - label: "2.4. From data to network with…"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.11/"
-    - label: "1.12. Activate your knowledge…"
+    - label: "2.5 Activate your knowledge…"
       icon: "fas fa-flask"
       url: "/mapping-controversies/1.12/"
-    - label: "2.1. Follow the protocol: scrape…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.1/"
-    - label: "2.2. Write the protocol: scrape…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.2/"
-    - label: "2.3. Follow the protocol…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.3/"
-    - label: "2.4. Write the protocol…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.4/"
-    - label: "2.5. Do your own network from…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.5/"
-    - label: "2.6. Follow the protocol: words…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.6/"
-    - label: "2.7. Extend the protocol: natural…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.7/"
-    - label: "2.8. Write the protocol…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.8/"
-    - label: "2.9. Write the protocol…"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/2.9/"
 
 
 # Site Footer
