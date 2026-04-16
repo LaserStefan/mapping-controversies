@@ -1,0 +1,71 @@
+---
+permalink: /2.1/
+layout: single
+title: "4 Ein eigenes Netzwerk mit SeeAlsology scrapen"
+---
+# Tool-Sitzung #4
+
+
+**Goals**
+* **SeeAlsology** als Tool kennenlernen
+* Ein Netzwerk exportieren
+
+# Case
+
+We still stick to the case of energy conversion, using Wikipedia as the main data source.
+
+# Data
+
+Download this CSV:
+
+<center><a href="../assets/data/2-1/wikipedia-URL-energy-conversion.csv">
+	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
+	wikipedia-URL-energy-conversion.csv
+</a><br><br></center>
+
+It contains 139 Wikipedia page URLs about energy conversion (no subcategories included). As you have seen, this file is the starting point of the protocol.
+
+<div class="notice">Contrary to a similar file we have seen in a previous tutorial, this one contains page URLs, not titles. It also has no header. This is what SeeAlsology needs.</div>
+
+# SeeAlsology
+
+[SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) is an online tool that builds a network of Wikipedia pages and their hyperlinks. By default, it only looks at the hyperlinks in the "See also" section at the bottom of a Wikipedia page, hence its name. But it has a setting to grab all hyperlinks (we will use it).
+
+* Open [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) in a browser
+* Open the CSV file in a spreadsheet or text editor, and copy-paste the list of URLs into SeeAlsology
+* Use these settings:
+	* ```Distance```: ```0``` (this will ensure that the tool only gets hyperlinks from the pages you input)
+	* ```Parent links```: ```Unchecked``` (this will ensure that the tool only gets links from the pages you input)
+	* ```Take all links```: ```Checked``` (this will ensure that the tool gets all links found anywhere on the pages you input)
+
+Wait, **are you sure you have used the right settings?**
+
+Good, now you can click on ```Start crawling```.
+
+Observe how the network grows as the tool works its way through the 139 seed pages.
+
+When the tool is done you can download the resulting network as a .GEXF file. If this did not work you can find a version of the result [<i class="fas fa-file"></i>&nbsp;here](../assets/data/2-1/seealsology-network.gexf).
+
+# Visualize in Gephi
+
+**Reminder:** If you do not have Gephi installed (or have not done tutorial 1.8 yet) use [Gephi Lite](https://gephi.org/gephi-lite/) in the browser instead: click on "Open a local file", upload the GEXF file, then zoom and pan the view to navigate the network.
+
+Open the resulting network in Gephi and observe the following:
+* There are much more nodes in this network than in the one you did in [tutorial 1.8](../1.8/) on a similar dataset. This is because SeeAlsology includes the next layer of pages that have been "seen" from the seed pages. The seed pages are coloured red and the "seen" pages are coloured blue.
+* To remove the pages that are not in the seeds, we can filter the network by outdegree. Set the minimum to 1 and filter - this will ensure that only pages that have been scraped for outlinks are included.
+
+# Check the protocol
+
+Check that you have followed the protocol. **You do not have to do the "ANNOTATE" part** in this tutorial and those that come after, except the last one. Keep in mind, however, that featuring the annotation in the protocol is a good practice.
+
+# Documents produced
+
+Keep somewhere, for sharing, the following document:
+* The (unannotated) network map (JPEG, PNG or PDF)
+
+---
+
+### Tools für vergleichbare Daten (GEXF bzw GDF) anderer Quellen:
+
+* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
+* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.

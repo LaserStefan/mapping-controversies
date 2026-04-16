@@ -1,14 +1,12 @@
 ---
 permalink: /1.2/
 layout: single
-title: 1.2. Visualize a different dataset with Tableau
+title: 1.2. Andere Daten mit Tableau darstellen
 ---
+# Tool-Sitzung #1
 
-**Duration: 30 min**
+Das ist eine Übung für Zuhause: eine zweite Visualisierung.
 
-[
-	![Overview tuto 1.2](../assets/images/1-2 1-3.jpg)
-](../assets/images/1-2 1-3.jpg)
 
 **Goals**
 * Check that different data tell a different story

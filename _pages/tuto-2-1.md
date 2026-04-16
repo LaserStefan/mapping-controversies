@@ -1,105 +1,56 @@
 ---
-permalink: /2.1/
+permalink: /1.5/
 layout: single
-title: "2.1. Follow the protocol: scrape a network with SeeAlsology"
+title: 2.1. Daten mit Toolforge scrapen
 ---
-
-**Duration: 15 min**
-
-[
-	![Overview tuto 2.1](../assets/images/2-1 2-2.jpg)
-](../assets/images/2-1 2-2.jpg)
+# Tool-Sitzung #2
 
 **Goals**
-* Discover **SeeAlsology**
-* Export a network
-* Check what a **protocol** looks like
+* *Harvest* a dataset with a tool from an online source
+* Know that the tool calls an API to get data
 
-# Case
+# Harvest a dataset
 
-We still stick to the case of energy conversion, using Wikipedia as the main data source.
+We will use Toolforge [PageViews](https://pageviews.toolforge.org) to harvest a the same dataset we have used to build the timeline of page views in [Tutorial 1.1](../1.1/).
 
-# Protocol
+* Go to [PageViews](https://pageviews.toolforge.org)
+* Visualize the data for the two following Wikipedia articles:
+	* ```Space-based solar power```
+	* ```Thorium-based nuclear power```
+* Use the right settings:
+	* The ```Dates``` should be from 01/07/2015 to today (we used 06/02/2022)
+	* The ```Date type``` should be ```Daily```. Indeed, Tableau can aggregate into months or years easily, so the more precise data is just better.
+* Download the dataset by clicking on the ```Download``` drop-down menu and selecting ```CSV```.
 
-Take a close look at this protocol:
+The tool works by calling the Application Programming Interface (API) of Wikipedia. The [endpoint for page views](https://wikitech.wikimedia.org/wiki/Analytics/AQS/Pageviews) gives you more options than the tool is able to offer, but the tool makes it easy to interact with API. We will see in the next tutorial how to use script to call the API directly.
+
+# Visualize
+
+Open the dataset into Tableau and check that it works. Can you visualize it at the day level using bars? It may look like this:
 
 [
-	![Protocol](../assets/images/2-1/Protocol_Tutorial2-1.svg)
-](../assets/images/2-1/Protocol_Tutorial2-1.svg)
+	![Timeline](../assets/images/1-5/timeline.png)
+](../assets/images/1-5/timeline.png)
 
-* The protocol tries to summarize all the information you need to understand the data and/or reproduce the analysis
-* It mentions the tools and the data formats, but also the **most relevant settings**. Notably, when data have been removed.
-* The main purpose of the protocol is to **provide context** to interpret the results.
-* How to know what to feature in the protocol? Anything that is necessary to **reproducing** the process. Because then it means that it partially determined the result, and thus is necessary to understand it.
+<div class="notice--info"><b>TIP:</b> if the bars look grey, that is because they are so thin that we only see their grey border. If you want to remove that border, click on the <code>Color</code> button in the <code>Marks</code> panel and set <code>Borders</code> to <code>None</code>.</div>
 
-<div class="notice--info">In the following tutorials, we will alternate between following protocols and writing them. Ultimately, the goal is to learn how to write a protocol as an important and necessary part of a digital methods project. </div>
-
-A [template for writing protocols is available here](https://docs.google.com/presentation/d/1pnV8ofxUogb9dKgiBzVuXDI5C1hk3A3WXgHo3HRdWug/edit?usp=sharing). Feel free to use it in the following tutorials.
-
-# Data
-
-Download this CSV:
-
-<center><a href="../assets/data/2-1/wikipedia-URL-energy-conversion.csv">
-	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
-	wikipedia-URL-energy-conversion.csv
-</a><br><br></center>
-
-It contains 139 Wikipedia page URLs about energy conversion (no subcategories included). As you have seen, this file is the starting point of the protocol.
-
-<div class="notice">Contrary to a similar file we have seen in a previous tutorial, this one contains page URLs, not titles. It also has no header. This is what SeeAlsology needs.</div>
-
-# SeeAlsology
-
-[SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) is an online tool that builds a network of Wikipedia pages and their hyperlinks. By default, it only looks at the hyperlinks in the "See also" section at the bottom of a Wikipedia page, hence its name. But it has a setting to grab all hyperlinks (we will use it).
-
-* Open [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) in a browser
-* Open the CSV file in a spreadsheet or text editor, and copy-paste the list of URLs into SeeAlsology
-* Use these settings:
-	* ```Distance```: ```0``` (this will ensure that the tool only gets hyperlinks from the pages you input)
-	* ```Parent links```: ```Unchecked``` (this will ensure that the tool only gets links from the pages you input)
-	* ```Take all links```: ```Checked``` (this will ensure that the tool gets all links found anywhere on the pages you input)
-
-Wait, **are you sure you have used the right settings?**
-
-Good, now you can click on ```Start crawling```.
-
-Observe how the network grows as the tool works its way through the 139 seed pages.
-
-When the tool is done you can download the resulting network as a .GEXF file. If this did not work you can find a version of the result [<i class="fas fa-file"></i>&nbsp;here](../assets/data/2-1/seealsology-network.gexf).
-
-# Visualize in Gephi
-
-**Reminder:** If you do not have Gephi installed (or have not done tutorial 1.8 yet) use [Gephi Lite](https://gephi.org/gephi-lite/) in the browser instead: click on "Open a local file", upload the GEXF file, then zoom and pan the view to navigate the network.
-
-Open the resulting network in Gephi and observe the following:
-* There are much more nodes in this network than in the one you did in [tutorial 1.8](../1.8/) on a similar dataset. This is because SeeAlsology includes the next layer of pages that have been "seen" from the seed pages. The seed pages are coloured red and the "seen" pages are coloured blue.
-* To remove the pages that are not in the seeds, we can filter the network by outdegree. Set the minimum to 1 and filter - this will ensure that only pages that have been scraped for outlinks are included.
-
-# Check the protocol
-
-Check that you have followed the protocol. **You do not have to do the "ANNOTATE" part** in this tutorial and those that come after, except the last one. Keep in mind, however, that featuring the annotation in the protocol is a good practice.
+No need to annotate this time (you've done it already in the [first tutorial](../1.1/)).
 
 # Documents produced
 
-Keep somewhere, for sharing, the following document:
-* The (unannotated) network map (JPEG, PNG or PDF)
+This time, none!
 
 # Next tutorial
 
-[<i class="fas fa-forward"></i>&nbsp;2.2. Write the protocol: scrape from one article with SeeAlsology *(30 min)*](../2.2/)
+[<i class="fas fa-forward"></i>&nbsp;1.6. Harvest data with a notebook *(30 min)*](../1.6/)
 
 ---
+
+### Tools for getting similar data (CSV format with timestamps) from other sources:
+* [Search interest over time with Google Trends](https://trends.google.com/trends/?geo=DK). Note that this can be filtered to geographical regions or other Google platforms such as YouTube, News or Shopping.
+* [Publication activity around a topic over time in scientific journals with Scopus](https://www.scopus.com/). Note that you will need to use your university login.
+* [Activity on public Facebook pages over time with FacePager](https://github.com/strohne/Facepager). Note that you will need to install the software.
 
 ### Relation to the course readings
 
 * The process of getting data through scraping, crawling and calling APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
-* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
-*Big Data & Society, 3(1).*
-* The principles and concepts of Visual Network Analysis (VNA) are covered in **Chapter 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
-* And in **Chapter 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
-
-### Tools for getting similar data (networks in GEXF or GDF format) from other sources:
-
-* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
-* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.

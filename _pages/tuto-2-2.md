@@ -1,97 +1,116 @@
 ---
-permalink: /2.2/
+permalink: /1.6/
 layout: single
-title: "2.2. Write the protocol: scrape from one article with SeeAlsology"
+title: 2.2. Daten mit Jupyter-Notebooks scrapen
 ---
-
-**Duration: 30 min**
-
-[
-	![Overview tuto 2.2](../assets/images/2-1 2-2.jpg)
-](../assets/images/2-1 2-2.jpg)
+# Tool-Sitzung #2
 
 **Goals**
-* **Harvest your own network** with SeeAlsology
-* Know that the tool uses a combination of scraping and API calls to get hyperlinks and then crawl them.
-* Make a choice about how to harvest the network (which settings)
-* Explore the result with Gephi
-* **Write up your protocol**
+* Learn how to run a **Jupyter notebook** from Google Colab 
+* Call an API to get data
+* Make an annotated visualization 
 
 # Case
 
-**Your choice!** Pick one Wikipedia article. Prioritize a topic that:
-* You are curious about
-* Is linked to a controversy you want to map
-* An article that is not too long, *or* that has a good "See also" section.
+Still the topic of *energy conversion*, but this time using 22 articles (which is why a notebook becomes practical).
 
-*Still no idea? Try [this one](https://en.wikipedia.org/wiki/Copenhagen).*
+# Data
 
-# Harvest a network with SeeAlsology
+Download this CSV:
 
-* Open [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/)
-* Copy-paste the URL of the Wikipedia article of your choice
-* Harvest a network
+<center><a href="../assets/data/1-6/wikipedia-articles - 22 energy conversion articles.csv">
+	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
+	wikipedia-articles - 22 energy conversion articles.csv
+</a><br><br></center>
 
-You should ask yourself the following questions, probably in this order:
-* Do I want all the links, or just the "See also" links at the bottom of the page? Check or uncheck the ```Take all links``` setting. If you want all the links, SeeAlsology will simply call the [links endpoint of the Wikipedia API](https://www.mediawiki.org/wiki/API:Links) and ask for the information directly. If you only want the "See also" links, the tool will have to [ask the API for the page content](https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page), then identify the "See also" section and scrape it for links.
-* Do I want to harvest links backwards (pages that cite my article but are not necessarily by my article)? If so, enable ```Parent links```. Since these links cannot be seen from the article you input, the tool cannot scrape anything and has to [rely on the API to get information about backlinks](https://www.mediawiki.org/wiki/API:Backlinks).
-* How far should I go? That is, how many link steps will you allow the tool to navigate from the seed page you have inputted? The tool works as a crawler and is able to repeat the process of getting links everytime it finds new the pages. This process is called crawling and in crawler terminology maximu number of linksteps from the seed is called ```Distance```. **Tip:** start with short distances to keep the harvest managable.
-* Do I want to filter the nodes later on in Gephi? Possibly because there are too many poorly connected nodes...
+It just contains a list of 22 articles about energy conversion. In fact, this list is just a small part of the articles about energy conversion, but we thought that it would be enough for now.
 
-These questions have no obvious answer. They depend on your article and your interests. Some articles do not have a "See also" section, so it forces you to take all links. Some articles cite many other articles, so the network grows too fast and you must pick a low distance. Some articles have many parent articles, some none, etc.
+If you feel like it, you can try the [<i class="fas fa-file-csv"></i> list of 139 articles](../assets/data/1-6/wikipedia-articles - 139 energy conversion articles.csv) from the first level of the [Wikipedia category](https://en.wikipedia.org/wiki/Category:Energy_conversion). Expect the notebook to take about 10 minutes to run, then.
 
-*How to decide:* Look at a network size that is feasible. Too big, and it will get slow or impossible to work with your network. Too small, and there will be nothing to interpret. Aim for a size that you are comfortable with. Maybe 100 to 1,000 nodes? It also depends on the performance of your computer!
+# Open the notebook in Google Colab
 
-***Remark:** By definition, a distance of 0 gives you just your starting article. Similarly, a distancce of 1 gives you the starting article and its neighbors, but not the links between them (a star-shaped network). So you probably need a distance of 2 or more.*
+A bit of context:
+* A *Jupyter notebook* is an online document that contains executable code (in Python), text, and images.
+* Executing the code requires a computer. For instance your own computer with [Anaconda](https://docs.anaconda.com/anaconda/); but that is not what we will use.
+* We will use [Google Colab](https://colab.research.google.com/), an environment offered by Google where the code is executed on a virtual machine. It requires a Google account (just like Sheets).
+* The script calls the API of Wikipedia to ask for all the edits on each of the pages on the list. These edits are called reivions and are available through [this endpoint](https://www.mediawiki.org/wiki/API:Revisions). 
 
-**Tip:** If your starting page has enough "See also" links, then you do not take all the links, you might get a nice network with high distances (3 or more).
+We will use the following script. It opens directly in Colab (although it is actually [stored on GitHub](https://github.com/jacomyma/mapping-controversies/tree/main/notebooks)).
 
-**Tip:** If you harvested all the links, then you probably need to filter your network in Gephi.
+**[🍹&nbsp;Wikipedia articles to edits list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_edits_list.ipynb)**
 
-This is the network obtained for the article [Copenhagen](https://en.wikipedia.org/wiki/Copenhagen) with a depth of 3, with parent links, see-also links only. Here is the [<i class="fas fa-file"></i>&nbsp;GEXF](../assets/data/2-2/see-also-copenhagen.gexf), by the way.
+*Note: the emoji of each notebook is just there to help you memorize which notebook does what.*
+
+But **check this tutorial first.** It uses the same file and notebook.
+
+{% include video id="UPyGLa4q_Dw" provider="youtube" %}
+
+# Run the notebook to harvest data
+
+* **Upload** the CSV data into the virtual machine. Click on the ```File``` icon on the left, then on the icon on top the reads ```Upload to session storage``` and upload the CSV from above.
+* Read the notebook text itself, ```SETTINGS``` included, stopping at ```SCRIPT```. You are not expected to understand the code itself. Just what it does.
+* **Edit the settings.** In particular, the name of the input file is probably not that indicated in the settings. You can change the variable in the settings, or rename the file in the virtual machine.
+* **Run the notebook.** Each cell can be executed individually, but we recommend to run everything at once from the menu: ```Runtime > Run all```. It is done when the *last cell* outputs "Done".
+* **Download** the output file from the virtual machine. First you to refresh the files of the virtual machine, in the side bar, by clicking on the ```Refresh``` icon. Then look for the output file, whose name was specified in the settings of the script, and download it via its drop-down menu, on the three dots on the right of the file.
+
+You should obtain a file like [<i class="fas fa-file-csv"></i> this one](../assets/data/1-6/wikipedia-edits - 22 energy conversion articles.csv).
+
+# Make an annotated visualization
+
+The exercise is basically the same as tutorials [1.2](../1.2/) and [1.3](../1.3/), but this time you have more articles.
+
+The tableau visualization may look like this...
 
 [
-	![See also Copenhagen](../assets/images/2-2/see-also-copenhagen.png)
-](../assets/images/2-2/see-also-copenhagen.png)
+	![Timeline](../assets/images/1-6/timeline.png)
+](../assets/images/1-6/timeline.png)
 
-# Visualize in Gephi
+...or maybe like that...
 
-* Export the GEXF from SeeAlsology (under the drop-down button ```Download```).
-* Visualize it in Gephi. You may have to filter out some nodes if it's too hairy...
-* Export the PNG (no need to annotate, though)
+[
+	![Stacked timeline](../assets/images/1-6/stacked-timeline.png)
+](../assets/images/1-6/stacked-timeline.png)
 
-# Write the protocol
+...and there are many other possibilities.
 
-Using Google Slides, write the protocol of the image you have produced. **It must feature the methodological decisions you have made in SeeAlsology.** You can copy [this template](https://docs.google.com/presentation/d/1pnV8ofxUogb9dKgiBzVuXDI5C1hk3A3WXgHo3HRdWug/edit?usp=sharing) and edit your own.
+**The notebook allows dealing with bigger data, which unlocks new research questions.** You may pick one of those for your annotations:
+* Are the articles synchronized or not? Are they edited at the same time?
+* Are some articles older, more recent? *Note: would you look at the date of first edit, or something else?*
+* Are there different moments where different articles get the most revisions?
+* Are certain articles only edited in certain parts of the world?
+
+**Tip:** you can use the ```Article``` dimension in Tableau's ```Pages``` shelf ([see help](https://help.tableau.com/current/reader/desktop/en-us/pages_shelf.htm)) to quickly compare across Articles.
+
+[
+	![Stacked timeline](../assets/images/1-6/pages.png)
+](../assets/images/1-6/pages.png)
 
 # Documents produced
 
-Keep somewhere, for sharing, the following documents:
-* The image of the network map (JPEG or PNG)
-* The image of the protocol (JPEG or PNG)
+Keep somewhere, for sharing, the following document:
+* The annotated visualization (JPEG or PNG)
 
 # Next tutorial
 
-[<i class="fas fa-forward"></i>&nbsp;2.3. Follow the protocol: co-reference network from a category *(15 min)*](../2.3/)
+Last break before lunch! Then head for the last activity of the morning:
 
-...but first, let's take a break.
+[<i class="fas fa-forward"></i>&nbsp;1.7. Activate your knowledge about Tableau *(30 min)*](../1.7/)
 
 ---
 
+### Additional resources
 
-### Tools for getting similar data (networks in GEXF or GDF format) from other sources:
-
-* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
-* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.
+* [Intro to Google Colab in 3 minutes](https://www.youtube.com/watch?v=inN8seMm7UI).
+* [A list of other endpoints you could call with a script to get data from the Wikipedia API](https://www.mediawiki.org/w/api.php?action=help&modules=query).
 
 ### Relation to the course readings
 
-* The process of getting data through scraping, crawling and calling APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
+* The process of getting data through APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
 * The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
-* A similar network is described in **Figure 47** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*:
 
-[
-	![Overview tuto 1.10](https://medihal.archives-ouvertes.fr/hal-03227358/image)
-](https://medihal.archives-ouvertes.fr/hal-03227358/image)
-*Network obtained by crawling the “Circumcision controversies” page on Wikipedia at crawl distance 1 while also calling Wikipedia’s API to find pages through backlinks. Pages that are only found through backlinks are labeled*
+### Tools for getting similar data (CSV format with timestamps) from other sources:
+
+* [Search interest over time with Google Trends](https://trends.google.com/trends/?geo=DK). Note that this can be filtered to geographical regions or other Google platforms such as YouTube, News or Shopping.
+* [Publication activity around a topic over time in scientific journals with Scopus](https://www.scopus.com/). Note that you will need to use your university login.
+* [Activity on public Facebook pages over time with FacePager](https://github.com/strohne/Facepager). Note that you will need to install the software.

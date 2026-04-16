@@ -1,45 +1,46 @@
 ---
 permalink: /1.1/
 layout: single
-title: 1.1. Intro to Tableau software
+title: 1.1. Einführung in Tableau und Visualisierung
 ---
+# Tool-Sitzung #1
 
 **Ziele**
 * Arbeit mit **Tableau Desktop**, einer populären Visualisierungs-Software
 * Die Annotation eines Ergebnisses
 
-**You need**
+**Was gebraucht wird**
 * Tableau Desktop 
-* Zugang zu einer Slide-Software
+* Zugang zu einer Slide-Software: Office 
 
 # Der Fall
 
-Zunächst geht es darum, grundlegend zu verstehen, wie mit Tableu Daten annotiert werden können.
+Zunächst geht es darum, grundlegend zu verstehen, wie mit Tableu Wikipedia-Daten annotiert werden können.
 
 Als Beispiel nehmen wir Zeitleisten, und zwar zwei spezifische AI-Technologien im Vergleich.
 
 # Data
 
-Download this CSV:
+Download:
 
 <center><a href="../assets/data/1-1/pageviews-20150701-20220206.csv">
 	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
 	pageviews-20150701-20220206.csv
 </a><br><br></center>
 
-It contains the page view data for both articles on Wikipedia in the period from 2015 to 2021.
-It comes from [this tool](https://pageviews.toolforge.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2015-07&end=2021-12&pages=Space-based_solar_power|Thorium-based_nuclear_power) but we will see that later on in the tutorial.
+Enthalten sind Daten von Wikipedia von 2015 to 2025.
+Dieses [tool](https://pageviews.toolforge.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2015-07&end=2021-12&pages=Space-based_solar_power|Thorium-based_nuclear_power) wurde benutzt, worauf wir noch zurückkommen werden in der nächsten Sitzung.
 
 # Video tutorial
 
-Note: the file mentioned in this video is the one you just downloaded.
+Neben der lokalen Vorbereitung (auf Deutsch) gibt es ein englischsprachiges Video mit Erklärungen von Mathieu.
 
 {% include video id="5XEdQgHgMdU" provider="youtube" %}
 
 # Load data into Tableau
 
-* Open Tableau Desktop
-* Load the CSV file you just downloaded above. To do that, look into the sidebar under "To a File" and click on "Text file", then upload the file ```pageviews-20150701-20220206.csv```
+* Tableau Desktop öffnen
+* Die CSV-Datei öffnen. To do that, look into the sidebar under "To a File" and click on "Text file", then upload the file ```pageviews-20150701-20220206.csv```
 * Check that the data are parsed correctly: you should see three columns. If not, you need to [change the settings](https://help.tableau.com/current/pro/desktop/en-gb/examples_text.htm#set-text-file-options).
 * Also check that the columns have the right type. The first column should be dates. If it is parsed as something else, for instance text or numbers, then you need to [change its type](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
 
@@ -114,10 +115,6 @@ File > Download > JPEG image
 
 Keep somewhere, for sharing, the following document:
 * The annotated visualization (JPEG or PNG)
-
-# Next tutorial
-
-[<i class="fas fa-forward"></i>&nbsp;1.2. Visualize a different dataset with Tableau *(30 min)*](../1.2/)
 
 ---
 
