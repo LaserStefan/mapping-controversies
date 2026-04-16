@@ -1,7 +1,7 @@
 ---
-permalink: /2.1/
+permalink: /4.1/
 layout: single
-title: "4 Ein eigenes Netzwerk mit SeeAlsology scrapen"
+title: 4 Ein eigenes Netzwerk mit SeeAlsology scrapen
 ---
 # Tool-Sitzung #4
 

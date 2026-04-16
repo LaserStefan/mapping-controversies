@@ -1,5 +1,5 @@
 ---
-permalink: /1.6/
+permalink: /2.2/
 layout: single
 title: 2.2. Daten mit Jupyter-Notebooks scrapen
 ---

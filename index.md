@@ -39,7 +39,7 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 
 ### Tutorials Teil 2: Netzwerke visualisieren (Gephi und Notebooks)
 
-**[3.1. Gephi-sNetzwerkanalye](3.1/)**
+**[3.1. Intro Gephi](3.1/)**
 <br>Einstieg in Gephi anhand eines Beispieldatensatzes.
 
 **[3.2. Ein gewichtetes Netzwerk visualisieren. Übung](3.3/)**

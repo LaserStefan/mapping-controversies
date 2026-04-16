@@ -1,5 +1,5 @@
 ---
-permalink: /1.8/
+permalink: /3.1/
 layout: single
 title: 3.1. Gephi-Einführung
 ---

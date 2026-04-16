@@ -1,7 +1,7 @@
 ---
-permalink: /2.4/
+permalink: /5.3/
 layout: single
-title: "2.4. Write the protocol: Article-editor network from a category"
+title: "5.3. Write the protocol: Article-editor network from a category"
 ---
 
 # Übung für das zweite Semester

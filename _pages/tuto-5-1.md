@@ -1,13 +1,13 @@
 i---
-permalink: /2.2/
+permalink: /5.1/
 layout: single
-title: "2.2. Write the protocol: scrape from one article with SeeAlsology"
+title: "5.1. Write the protocol: scrape from one article with SeeAlsology"
 ---
 
 # Mit dieser Übung starten wir ins zweite Semester
 
 Das sind noch die rohen Dateien, wie sie aus der englischsprachigen Übersetzung kommen. Wer möchte, kann schon einmal hereinschauen.
-Hinzu kommen werden Informationen dazu, was es mit einem "Protokoll" auf sich hat.
+Hinzu kommen werden Informationen dazu, was es mit einem "Protokoll" auf sich hat. Stay tuned.
 
 **Goals**
 * **Harvest your own network** with SeeAlsology

@@ -1,13 +1,11 @@
 ---
-permalink: /2.3/
+permalink: /5.2/
 layout: single
-title: "2.3. Follow the protocol: co-reference network from a category"
+title: "5.2. Follow the protocol: co-reference network from a category"
 ---
 
 # Übungen für das zweite Semester
-[
-	![Overview tuto 2.3](../assets/images/2-3.jpg)
-](../assets/images/2-3.jpg)
+
 
 **Goals**
 * Check **two new Jupyter notebooks**

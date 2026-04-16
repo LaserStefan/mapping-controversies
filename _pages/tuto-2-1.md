@@ -1,5 +1,5 @@
 ---
-permalink: /1.5/
+permalink: /2.1/
 layout: single
 title: 2.1. Daten mit Toolforge scrapen
 ---

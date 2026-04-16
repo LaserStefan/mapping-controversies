@@ -1,5 +1,5 @@
 ---
-permalink: /1.9/
+permalink: /3.2/
 layout: single
 title: 3.2. Ein bipartites Netzwerk
 ---
