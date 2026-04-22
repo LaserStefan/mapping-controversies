@@ -86,7 +86,7 @@ Insert > Image > Upload from computer
 ```
 
 # Annotate the visualization
-Der letzte Schritt besteht darin, die Zeitleiste mit Anmerkungen zu versehen. Das Ziel ist es, dem Leser durch kurze Erläuterungen zu helfen, die Spitzen bei den Seitenaufrufen zu verstehen. Folge [diesem Template]("../assets/data/1-1/MappingControversies_Annotation.pptx") in einem Slide-Programm. 
+Der letzte Schritt besteht darin, die Zeitleiste mit Anmerkungen zu versehen. Das Ziel ist es, dem Leser durch kurze Erläuterungen zu helfen, die Spitzen bei den Seitenaufrufen zu verstehen. Folge [diesem Template](https://laserstefan.github.io/mapping-controversies/assets/data/1-1/MappingControversies_Annotation.pptx") in einem Slide-Programm. 
 
 [
 	![Partially annotated timeline in Google Slides](../assets/images/1-1/MappingControversies_AnnotationExamples_PageViews_SpaceBasedSolar.svg)
