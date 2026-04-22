@@ -23,12 +23,12 @@ Als Beispiel nehmen wir Zeitleisten, und zwar zwei spezifische AI-Technologien i
 
 Download:
 
-<center><a href="../assets/data/1-1/pageviews-20150701-20220206.csv">
+<center><a href="../assets/data/1-1/pageviews-20210101-20260331.csv">
 	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
-	pageviews-20150701-20220206.csv
+	pageviews-20210101-20260331.csv
 </a><br><br></center>
 
-Enthalten sind Daten von Wikipedia von 2015 to 2025.
+Enthalten sind Daten von Wikipedia von 2021 to 2026.
 Dieses [tool](https://pageviews.toolforge.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2015-07&end=2021-12&pages=Space-based_solar_power|Thorium-based_nuclear_power) wurde benutzt, worauf wir noch zurückkommen werden in der nächsten Sitzung.
 
 # Video tutorial
@@ -40,48 +40,43 @@ Neben der lokalen Vorbereitung (auf Deutsch) gibt es ein englischsprachiges Vide
 # Load data into Tableau
 
 * Tableau Desktop öffnen
-* Die CSV-Datei öffnen. To do that, look into the sidebar under "To a File" and click on "Text file", then upload the file ```pageviews-20150701-20220206.csv```
-* Check that the data are parsed correctly: you should see three columns. If not, you need to [change the settings](https://help.tableau.com/current/pro/desktop/en-gb/examples_text.htm#set-text-file-options).
-* Also check that the columns have the right type. The first column should be dates. If it is parsed as something else, for instance text or numbers, then you need to [change its type](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
+* Die CSV-Datei öffnen. Dazu aufrufen: "To a File" und dann: "Text file", hier die entsprechende Datei auswählen: ```pageviews-20210101-20260331```
+* Sind die Daten richtig geladen? Sind drei Spalten zu sehen. Wenn nicht, müssen [die Einstellungen angepasst werden](https://help.tableau.com/current/pro/desktop/en-gb/examples_text.htm#set-text-file-options).
+* Ist der Type der Spalte korrekt? Erste Spalte: Datum/dateGgf. [muss der Typ gewechselt werden](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
 
-It may look like this (notice that the first column is parsed as dates).
+Ungefähr so sehen Ergebnisse aus.
 
 [
 	![Parsing data in Tableau](../assets/images/1-1/MappingControversies_TutorialScreenshots_TableauParsing.svg)
 ](../assets/images/1-1/MappingControversies_TutorialScreenshots_TableauParsing.svg)
 
 
-# Visualize the data as a simple timeline
+# Visualisierung als Timeline
 
-* Click on the "Sheet 1" tab in the bottom of the screen to start creating your first visualization.
-* On the left under "Tables" you will see the data columns you just parsed: "Date", "Thorium-based nuclear power", and "Space-based solar power". You can drag and drop them onto your sheet.
-* At the top of the sheet you will see two horizontal fields called "Columns" and "Rows". Dropping your data into each of them will define what should be represented on the horizontal and vertical axis in your visualization. Since we are building a timeline, let us begin by dragging "Date" into the "Columns" field (will represent time on the horizontal axis).
-* Drag either Thorium-based nuclear power" or "Space-based solar power" into the "Rows" field. You should now see a timeline. You can also drag both into the "Rows" field to generate two timelimes for comparison.
-* Since you have not told Tableau how you want to aggregate the page views - day by day, week by week, quarter by quarter, year by year - it will make an arbitrary choice. Perhaps your first timeline is aggreated in years. You should change this depending on your interest. To do so, click on the dropdown menu for "Date" in the "Columns" field:
+* Klicken Sie unten auf dem Bildschirm auf die Registerkarte „Blatt 1“, um mit der Erstellung Ihrer ersten Visualisierung zu beginnen.
+* Links unter „Tabellen“ sehen Sie die Datenspalten, die Sie gerade parst haben: „Datum“, „AI risk“ und „AI safety“. Sie können diese per Drag & Drop auf Ihr Blatt ziehen.
+* Oben auf dem Blatt sind zwei horizontale Felder namens „Spalten“ und „Zeilen“ zu sehen. Das Ziehen der Daten in jedes dieser Felder legt fest, was auf der horizontalen und vertikalen Achse Ihrer Visualisierung dargestellt werden soll. Da wir eine Zeitleiste erstellen, ziehen wir zunächst „Datum“ in das Feld „Spalten“ (dies stellt die Zeit auf der horizontalen Achse dar).
+* Jetzt eine der beiden Datenzeilen in das Feld „Zeilen“ ziehen, AI risk oder Safety. So sollte eine Zeitleiste zu sehen sein. Man kann auch beide in das Feld „Zeilen“ ziehen, um zwei Zeitleisten zum Vergleich zu erstellen.
+* Da Tableau nicht mitgeteilt wurde, wie die Seitenaufrufe aggregiert werden sollen – nach Tagen, Wochen, Quartalen oder Jahren –, trifft das Programm eine willkürliche Auswahl. Das sollte je nach Bedarf geändernt werden. Siehe unter „Spalten“ das Dropdown-Menü für „Datum“:
 
 [
 	![Setting date in Tableau](../assets/images/1-1/MappingControversies_TutorialScreenshots_TableauDateSetting.svg)
 ](../assets/images/1-1/MappingControversies_TutorialScreenshots_TableauDateSetting.svg)
 
-* There are multiple settings to choose from. Note that if you want to show the tilmeline week by week or month by month, there are two ways to do it. By default, Tableau will just aggregate all the data for a month or a week, for example for August, without considering for which year. Since we want to show the timeline month by month from 2015 to 2021, we should therefore choose "Month     May, 2015" from the second section of options (highlighted on the screenshot above) rather than just "Month    May". 
+* Es stehen mehrere Einstellungen zur Auswahl. Es gibt zwei Wege. Standardmäßig fasst Tableau lediglich alle Daten für einen Monat oder eine Woche zusammen, beispielsweise für den August, ohne dabei das jeweilige Jahr zu berücksichtigen. Wir sollten die Ergebnisse entsprechend sortieren.
 
 
-The result may look like this:
-[
-	![Basic timeline in Tableau](../assets/images/1-1/timeline.png)
-](../assets/images/1-1/timeline.png)
+# Exportieren als Bild
 
-# Export the visualization as an image
-
-Export the visualization as a static image from the menu:
+Als statistisches Bild über das Menu exportieren:
 
 ```
 Worksheet > Export > Image...
 ```
 
-Save as a ```.PNG``` file that we can easily reuse in Google Slides
+Als ```.PNG``` speichern
 
-# Import the image into Google Slides
+# In ein Präsentationsprogramm laden
 
 {% include video id="Z3yCzA92wjk" provider="youtube" %}
 
@@ -91,35 +86,30 @@ Insert > Image > Upload from computer
 ```
 
 # Annotate the visualization
-The last step is to annotate the timeline. The goal is to help the reader make sense of the spikes in page views by adding small textual explainers. You can [follow this template](https://docs.google.com/presentation/d/1sUoBD0Q0DjBOsV-lgFbvlVQIGF4gYfWbUN88iE-GUTQ/edit?usp=sharing) to see how it can be done in Google Sheets. You can copy the slide show (File > Make a copy > Entire presentation) to edit your own version. 
+Der letzte Schritt besteht darin, die Zeitleiste mit Anmerkungen zu versehen. Das Ziel ist es, dem Leser durch kurze Erläuterungen zu helfen, die Spitzen bei den Seitenaufrufen zu verstehen. Folge [diesem Template]("../assets/data/1-1/MappingControversies_Annotation.pptx") in einem Slide-Programm. 
 
 [
 	![Partially annotated timeline in Google Slides](../assets/images/1-1/MappingControversies_AnnotationExamples_PageViews_SpaceBasedSolar.svg)
 ](../assets/images/1-1/MappingControversies_AnnotationExamples_PageViews_SpaceBasedSolar.svg)
 
-Annotate the remaining spikes. If you have time, replace the timeline with the page views for Thorium-based nuclear power and annotate that instead. 
+Ziel: Ausreißer ("Spikes") annotieren. Warum gibt es Ausschläge? 
 
-Annotation requires some exploration. We could assume that an increase in page views on Wikipedia corresponds to an increase in public interest. If this is the case, then it makes sense to explore what events were in the news around that point in time. In the example above we use a simple Google News search for "Space-based solar power" with a custom time range for [February 2021](https://www.google.dk/search?q=%22space-based+solar+power%22&biw=1418&bih=682&tbs=cdr%3A1%2Ccd_min%3A2%2F1%2F2021%2Ccd_max%3A3%2F1%2F2021&tbm=nws&sxsrf=APq-WBu-F0ZC0BBYcYaD5nGaChCSJ5z7jQ%3A1644350453841&ei=9csCYp30Mo7NrgTai4LQBw&ved=0ahUKEwjdwr_l8vD1AhWOposKHdqFAHoQ4dUDCA0&uact=5&oq=%22space-based+solar+power%22&gs_lcp=Cgxnd3Mtd2l6LW5ld3MQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BAgAEEM6BggAEAcQHlCwA1iWDWCbD2gAcAB4AIABjgKIAbIDkgEFMi4wLjGYAQCgAQHAAQE&sclient=gws-wiz-news), [October 2019](https://www.google.dk/search?q=%22space-based+solar+power%22&biw=1418&bih=682&tbs=cdr%3A1%2Ccd_min%3A10%2F1%2F2019%2Ccd_max%3A11%2F1%2F2019&tbm=nws&sxsrf=APq-WBvcdd_o_zZ9rlBxobFBAX_Y9rXrTg%3A1644348814341&ei=jsUCYtCoFMSSwPAP6c6D8AQ&ved=0ahUKEwjQp9zX7PD1AhVECRAIHWnnAE4Q4dUDCA0&uact=5&oq=%22space-based+solar+power%22&gs_lcp=Cgxnd3Mtd2l6LW5ld3MQAzIFCAAQgAQyBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB46BAgAEENQ2AVYzxRguBhoAHAAeACAAVKIAeQBkgEBM5gBAKABAcABAQ&sclient=gws-wiz-news), and [February/March 2019](https://www.google.dk/search?q=%22space-based+solar+power%22&biw=1418&bih=682&sxsrf=APq-WBs74uo48B6TBuo7TyaSCQK1NW-AxA%3A1644348845061&source=lnt&tbs=cdr%3A1%2Ccd_min%3A2%2F1%2F2019%2Ccd_max%3A4%2F1%2F2019&tbm=nws) respectively. Try to adjust the time range to capture some of the other spikes and explore the search results to come up with a good annotation.
-
-<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;<b>CAUTION:</b> For some of the spikes, notably some of the bigger ones in both timelines, no good explanation can be found in the news. We will return to why that is the case at a later stage. For now, leave them unannotated.</div>
+<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;<b>WARNUNG:</b> Für einige der Spikes lässt sich ggf. in den Nachrichten keine schlüssige Erklärung finden. </div>
 
 
 # Export the slide as an image
 
-You can export a static image from the menu:
-```
-File > Download > JPEG image
-```
+Exportieren als JPEG oder PNG.
 
 # Documents produced
 
-Keep somewhere, for sharing, the following document:
-* The annotated visualization (JPEG or PNG)
+Datei speichern für spätere Nutzung.
+* Die annotierte Datei (JPEG oder PNG)
 
 ---
 
 ### Weitere Resources
 
-* [An intro to Tableau in 23 minutes](https://www.youtube.com/watch?v=jEgVto5QME8)
-* An example of [Tableau visualizations annotated in Google Slides](https://docs.google.com/presentation/d/1WFBRnr-USNOybHRmKWfGwpOffqFH8PB_SfzDQuBwKI0/edit?usp=sharing), looking into "OK Boomer" on Twitter, during the DMI Winter School 2022
+* [Tableau 101 in 20 Minuten](https://www.youtube.com/watch?v=jEgVto5QME8)
+* [Tableau viz mit Google Slides](https://docs.google.com/presentation/d/1WFBRnr-USNOybHRmKWfGwpOffqFH8PB_SfzDQuBwKI0/edit?usp=sharing), anhand des Bsp. "OK Boomer" auf Twitter.
 
