@@ -1,96 +1,90 @@
-i---
+---
 permalink: /5.1/
 layout: single
-title: "5.1. Write the protocol: scrape from one article with SeeAlsology"
+title: "5.1. Das Protokoll schreiben: von einem Artikel aus mit SeeAlsology scrapen"
 ---
 
-# Mit dieser Übung starten wir ins zweite Semester
+# Mit dieser Übung startet man ins zweite Semester
 
 Das sind noch die rohen Dateien, wie sie aus der englischsprachigen Übersetzung kommen. Wer möchte, kann schon einmal hereinschauen.
-Hinzu kommen werden Informationen dazu, was es mit einem "Protokoll" auf sich hat. Stay tuned.
+Hinzu kommen werden Informationen dazu, was es mit einem „Protokoll“ auf sich hat. Stay tuned.
 
-**Goals**
-* **Harvest your own network** with SeeAlsology
-* Know that the tool uses a combination of scraping and API calls to get hyperlinks and then crawl them.
-* Make a choice about how to harvest the network (which settings)
-* Explore the result with Gephi
-* **Write up your protocol**
+**Ziele**
+* Ein **eigenes Netzwerk sammeln** mit SeeAlsology
+* Wissen, dass das Tool eine Kombination aus Scraping und API-Aufrufen nutzt, um Hyperlinks zu erhalten und dann zu crawlen.
+* Eine Entscheidung treffen, wie das Netzwerk gesammelt wird (welche Einstellungen)
+* Das Ergebnis mit Gephi erkunden
+* **Das eigene Protokoll schreiben**
 
-# Case
+# Fall
 
-**Your choice!** Pick one Wikipedia article. Prioritize a topic that:
-* You are curious about
-* Is linked to a controversy you want to map
-* An article that is not too long, *or* that has a good "See also" section.
+**Freie Wahl!** Einen Wikipedia-Artikel aussuchen. Bevorzugt werden sollte ein Thema, das:
+* einen selbst interessiert
+* mit einer Kontroverse verknüpft ist, die man kartieren möchte
+* ein Artikel, der nicht zu lang ist, *oder* einen guten „See also“-Abschnitt hat.
 
-*Still no idea? Try [this one](https://en.wikipedia.org/wiki/Copenhagen).*
+*Noch keine Idee? [Diesen hier](https://en.wikipedia.org/wiki/Copenhagen) ausprobieren.*
 
-# Harvest a network with SeeAlsology
+# Ein Netzwerk mit SeeAlsology sammeln
 
-* Open [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/)
-* Copy-paste the URL of the Wikipedia article of your choice
-* Harvest a network
+* [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) öffnen
+* Die URL des gewählten Wikipedia-Artikels einfügen
+* Ein Netzwerk sammeln
 
-You should ask yourself the following questions, probably in this order:
-* Do I want all the links, or just the "See also" links at the bottom of the page? Check or uncheck the ```Take all links``` setting. If you want all the links, SeeAlsology will simply call the [links endpoint of the Wikipedia API](https://www.mediawiki.org/wiki/API:Links) and ask for the information directly. If you only want the "See also" links, the tool will have to [ask the API for the page content](https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page), then identify the "See also" section and scrape it for links.
-* Do I want to harvest links backwards (pages that cite my article but are not necessarily by my article)? If so, enable ```Parent links```. Since these links cannot be seen from the article you input, the tool cannot scrape anything and has to [rely on the API to get information about backlinks](https://www.mediawiki.org/wiki/API:Backlinks).
-* How far should I go? That is, how many link steps will you allow the tool to navigate from the seed page you have inputted? The tool works as a crawler and is able to repeat the process of getting links everytime it finds new the pages. This process is called crawling and in crawler terminology maximu number of linksteps from the seed is called ```Distance```. **Tip:** start with short distances to keep the harvest managable.
-* Do I want to filter the nodes later on in Gephi? Possibly because there are too many poorly connected nodes...
+Dabei sollte man sich, vermutlich in dieser Reihenfolge, folgende Fragen stellen:
+* Möchte man alle Links, oder nur die „See also“-Links am Ende der Seite? Die Einstellung ```Take all links``` entsprechend aktivieren oder deaktivieren. Bei allen Links ruft SeeAlsology einfach den [Links-Endpoint der Wikipedia-API](https://www.mediawiki.org/wiki/API:Links) auf und fragt die Information direkt ab. Bei nur den „See also“-Links muss das Tool [den Seiteninhalt über die API abfragen](https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page), den „See also“-Abschnitt identifizieren und daraus die Links extrahieren.
+* Möchte man Links auch rückwärts sammeln (Seiten, die auf den eigenen Artikel verweisen, aber nicht unbedingt von ihm aus verlinkt sind)? Falls ja, ```Parent links``` aktivieren. Da diese Links vom eingegebenen Artikel aus nicht sichtbar sind, kann das Tool hier nichts scrapen und muss sich [auf die API verlassen, um Informationen zu Backlinks zu erhalten](https://www.mediawiki.org/wiki/API:Backlinks).
+* Wie weit soll gecrawlt werden? Also: Wie viele Link-Schritte darf das Tool von der eingegebenen Startseite aus maximal gehen? Das Tool arbeitet wie ein Crawler und kann den Vorgang, Links zu holen, jedes Mal wiederholen, wenn es neue Seiten findet. Dieser Vorgang heißt Crawling, und in der Crawler-Terminologie wird die maximale Anzahl an Link-Schritten von der Startseite aus ```Distance``` genannt. **Tipp:** Mit kurzen Distanzen beginnen, um die Erhebung überschaubar zu halten.
+* Möchte man die Knoten später in Gephi filtern? Möglicherweise, weil es zu viele schwach verbundene Knoten gibt...
 
-These questions have no obvious answer. They depend on your article and your interests. Some articles do not have a "See also" section, so it forces you to take all links. Some articles cite many other articles, so the network grows too fast and you must pick a low distance. Some articles have many parent articles, some none, etc.
+Auf diese Fragen gibt es keine offensichtliche Antwort. Sie hängen vom jeweiligen Artikel und den eigenen Interessen ab. Manche Artikel haben keinen „See also“-Abschnitt, sodass zwangsläufig alle Links genommen werden müssen. Manche Artikel verlinken viele andere Artikel, sodass das Netzwerk zu schnell wächst und eine niedrige Distanz gewählt werden muss. Manche Artikel haben viele übergeordnete Artikel, manche keine, usw.
 
-*How to decide:* Look at a network size that is feasible. Too big, and it will get slow or impossible to work with your network. Too small, and there will be nothing to interpret. Aim for a size that you are comfortable with. Maybe 100 to 1,000 nodes? It also depends on the performance of your computer!
+*Wie entscheiden:* Auf eine machbare Netzwerkgröße achten. Zu groß, und die Arbeit damit wird langsam oder unmöglich. Zu klein, und es gibt nichts zu interpretieren. Eine Größe anstreben, mit der man gut arbeiten kann. Vielleicht 100 bis 1.000 Knoten? Das hängt auch von der Leistung des eigenen Rechners ab!
 
-***Remark:** By definition, a distance of 0 gives you just your starting article. Similarly, a distancce of 1 gives you the starting article and its neighbors, but not the links between them (a star-shaped network). So you probably need a distance of 2 or more.*
+***Anmerkung:** Per Definition liefert eine Distanz von 0 nur den Startartikel. Ebenso liefert eine Distanz von 1 den Startartikel und seine Nachbarn, aber nicht die Links zwischen ihnen (ein sternförmiges Netzwerk). Meist ist also eine Distanz von 2 oder mehr nötig.*
 
-**Tip:** If your starting page has enough "See also" links, then you do not take all the links, you might get a nice network with high distances (3 or more).
+**Tipp:** Wenn die Startseite genügend „See also“-Links hat, lässt sich – ohne alle Links zu nehmen – bei höheren Distanzen (3 oder mehr) unter Umständen ein schönes Netzwerk erzielen.
 
-**Tip:** If you harvested all the links, then you probably need to filter your network in Gephi.
+**Tipp:** Wurden alle Links gesammelt, muss das Netzwerk vermutlich in Gephi gefiltert werden.
 
-This is the network obtained for the article [Copenhagen](https://en.wikipedia.org/wiki/Copenhagen) with a depth of 3, with parent links, see-also links only. Here is the [<i class="fas fa-file"></i>&nbsp;GEXF](../assets/data/2-2/see-also-copenhagen.gexf), by the way.
+Dies ist das Netzwerk, das für den Artikel [Copenhagen](https://en.wikipedia.org/wiki/Copenhagen) mit einer Tiefe von 3, mit Parent Links und nur See-also-Links entstanden ist. Hier die [<i class="fas fa-file"></i>&nbsp;GEXF](../assets/data/5-1/see-also-copenhagen.gexf).
 
 [
 	![See also Copenhagen](../assets/images/2-2/see-also-copenhagen.png)
 ](../assets/images/2-2/see-also-copenhagen.png)
 
-# Visualize in Gephi
+# In Gephi visualisieren
 
-* Export the GEXF from SeeAlsology (under the drop-down button ```Download```).
-* Visualize it in Gephi. You may have to filter out some nodes if it's too hairy...
-* Export the PNG (no need to annotate, though)
+* Die GEXF aus SeeAlsology exportieren (über das Dropdown ```Download```).
+* In Gephi visualisieren. Eventuell müssen einige Knoten herausgefiltert werden, falls es zu unübersichtlich ist...
+* Das PNG exportieren (eine Annotation ist hier nicht nötig)
 
-# Write the protocol
+# Das Protokoll schreiben
 
-Using Google Slides, write the protocol of the image you have produced. **It must feature the methodological decisions you have made in SeeAlsology.** You can copy [this template](https://docs.google.com/presentation/d/1pnV8ofxUogb9dKgiBzVuXDI5C1hk3A3WXgHo3HRdWug/edit?usp=sharing) and edit your own.
+In Google Slides das Protokoll zum erstellten Bild schreiben. **Es müssen die methodischen Entscheidungen enthalten sein, die in SeeAlsology getroffen wurden.** Dafür kann [diese Vorlage](https://docs.google.com/presentation/d/1pnV8ofxUogb9dKgiBzVuXDI5C1hk3A3WXgHo3HRdWug/edit?usp=sharing) kopiert und selbst bearbeitet werden.
 
-# Documents produced
+# Erstellte Dokumente
 
-Keep somewhere, for sharing, the following documents:
-* The image of the network map (JPEG or PNG)
-* The image of the protocol (JPEG or PNG)
-
-# Next tutorial
-
-[<i class="fas fa-forward"></i>&nbsp;2.3. Follow the protocol: co-reference network from a category *(15 min)*](../2.3/)
-
-...but first, let's take a break.
+Für die spätere Weitergabe sollte man Folgendes aufbewahren:
+* Das Bild der Netzwerkkarte (JPEG oder PNG)
+* Das Bild des Protokolls (JPEG oder PNG)
 
 ---
 
 
-### Tools for getting similar data (networks in GEXF or GDF format) from other sources:
+### Tools für vergleichbare Daten (Netzwerke im GEXF- oder GDF-Format) aus anderen Quellen:
 
-* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
-* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.
+* Netzwerke von YouTube-Kanälen oder YouTube-Videos, verbunden über ihre Ähnlichkeit (gemessen an den algorithmischen Empfehlungen), mit den [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Benötigt eine Liste von Video- oder Kanal-IDs als Input.
+* Netzwerke wissenschaftlicher Publikationen, verbunden über Schlagworte oder Zitationen, mit [ScienceScape](http://medialab.github.io/sciencescape/). Benötigt einen vollständigen Export aus Scopus als Input.
 
-### Relation to the course readings
+### Bezug zu den Kurslektüren
 
-* The process of getting data through scraping, crawling and calling APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
-* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
+* Der Prozess der Datenerhebung über Scraping, Crawling und API-Aufrufe wird behandelt in **Kapitel 6: Collecting and curating digital records** von *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
+* Die Besonderheiten von Wikipedia und die verschiedenen Wege, wie die Plattform für die Kontroversenanalyse genutzt werden kann, werden behandelt in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
-* A similar network is described in **Figure 47** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*:
+* Ein ähnliches Netzwerk wird beschrieben in **Abbildung 47** von *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*:
 
 [
 	![Overview tuto 1.10](https://medihal.archives-ouvertes.fr/hal-03227358/image)
 ](https://medihal.archives-ouvertes.fr/hal-03227358/image)
-*Network obtained by crawling the “Circumcision controversies” page on Wikipedia at crawl distance 1 while also calling Wikipedia’s API to find pages through backlinks. Pages that are only found through backlinks are labeled*
+*Netzwerk, das durch Crawlen der Seite „Circumcision controversies“ auf Wikipedia mit Crawl-Distanz 1 entstand, wobei zusätzlich die Wikipedia-API aufgerufen wurde, um über Backlinks weitere Seiten zu finden. Seiten, die ausschließlich über Backlinks gefunden wurden, sind entsprechend beschriftet.*

@@ -6,66 +6,66 @@ title: 4 Ein eigenes Netzwerk mit SeeAlsology scrapen
 # Tool-Sitzung #4
 
 
-**Goals**
+**Ziele**
 * **SeeAlsology** als Tool kennenlernen
 * Ein Netzwerk exportieren
 
-# Case
+# Fall
 
-We still stick to the case of energy conversion, using Wikipedia as the main data source.
+Weiterhin geht es um das Thema energy conversion, mit Wikipedia als Hauptdatenquelle.
 
-# Data
+# Daten
 
-Download this CSV:
+Diese CSV herunterladen:
 
-<center><a href="../assets/data/2-1/wikipedia-URL-energy-conversion.csv">
+<center><a href="../assets/data/4-1/wikipedia-URL-energy-conversion.csv">
 	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
 	wikipedia-URL-energy-conversion.csv
 </a><br><br></center>
 
-It contains 139 Wikipedia page URLs about energy conversion (no subcategories included). As you have seen, this file is the starting point of the protocol.
+Sie enthält 139 Wikipedia-Seiten-URLs zum Thema energy conversion (ohne Unterkategorien). Wie bereits gesehen, ist diese Datei der Ausgangspunkt des Protokolls.
 
-<div class="notice">Contrary to a similar file we have seen in a previous tutorial, this one contains page URLs, not titles. It also has no header. This is what SeeAlsology needs.</div>
+<div class="notice">Anders als eine ähnliche Datei aus einem früheren Tutorial enthält diese Seiten-URLs statt Titel. Außerdem hat sie keine Kopfzeile. Genau das benötigt SeeAlsology.</div>
 
 # SeeAlsology
 
-[SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) is an online tool that builds a network of Wikipedia pages and their hyperlinks. By default, it only looks at the hyperlinks in the "See also" section at the bottom of a Wikipedia page, hence its name. But it has a setting to grab all hyperlinks (we will use it).
+[SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) ist ein Online-Tool, das ein Netzwerk aus Wikipedia-Seiten und deren Hyperlinks erstellt. Standardmäßig berücksichtigt es nur die Hyperlinks im Abschnitt „See also“ am Ende einer Wikipedia-Seite, daher der Name. Es gibt aber eine Einstellung, um alle Hyperlinks zu erfassen (die hier verwendet wird).
 
-* Open [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) in a browser
-* Open the CSV file in a spreadsheet or text editor, and copy-paste the list of URLs into SeeAlsology
-* Use these settings:
-	* ```Distance```: ```0``` (this will ensure that the tool only gets hyperlinks from the pages you input)
-	* ```Parent links```: ```Unchecked``` (this will ensure that the tool only gets links from the pages you input)
-	* ```Take all links```: ```Checked``` (this will ensure that the tool gets all links found anywhere on the pages you input)
+* [SeeAlsology](https://densitydesign.github.io/strumentalia-seealsology/) im Browser öffnen
+* Die CSV-Datei in einer Tabellenkalkulation oder einem Texteditor öffnen und die Liste der URLs in SeeAlsology einfügen
+* Folgende Einstellungen verwenden:
+	* ```Distance```: ```0``` (dadurch bezieht das Tool ausschließlich Hyperlinks von den eingegebenen Seiten)
+	* ```Parent links```: ```deaktiviert``` (dadurch bezieht das Tool ausschließlich Links von den eingegebenen Seiten)
+	* ```Take all links```: ```aktiviert``` (dadurch erfasst das Tool alle auf den eingegebenen Seiten gefundenen Hyperlinks)
 
-Wait, **are you sure you have used the right settings?**
+Moment, **sind die richtigen Einstellungen gewählt?**
 
-Good, now you can click on ```Start crawling```.
+Gut, jetzt kann auf ```Start crawling``` geklickt werden.
 
-Observe how the network grows as the tool works its way through the 139 seed pages.
+Beobachten, wie das Netzwerk wächst, während sich das Tool durch die 139 Startseiten arbeitet.
 
-When the tool is done you can download the resulting network as a .GEXF file. If this did not work you can find a version of the result [<i class="fas fa-file"></i>&nbsp;here](../assets/data/2-1/seealsology-network.gexf).
+Sobald das Tool fertig ist, kann das entstandene Netzwerk als .GEXF-Datei heruntergeladen werden. Falls das nicht funktioniert, gibt es hier eine Version des Ergebnisses [<i class="fas fa-file"></i>&nbsp;hier](../assets/data/4-1/seealsology-network.gexf).
 
-# Visualize in Gephi
+# In Gephi visualisieren
 
-**Reminder:** If you do not have Gephi installed (or have not done tutorial 1.8 yet) use [Gephi Lite](https://gephi.org/gephi-lite/) in the browser instead: click on "Open a local file", upload the GEXF file, then zoom and pan the view to navigate the network.
+**Erinnerung:** Wer Gephi nicht installiert hat (oder Tutorial 3.1 noch nicht gemacht hat), kann stattdessen [Gephi Lite](https://gephi.org/gephi-lite/) im Browser verwenden: auf „Open a local file“ klicken, die GEXF-Datei hochladen, dann per Zoom und Pan durch das Netzwerk navigieren.
 
-Open the resulting network in Gephi and observe the following:
-* There are much more nodes in this network than in the one you did in [tutorial 1.8](../1.8/) on a similar dataset. This is because SeeAlsology includes the next layer of pages that have been "seen" from the seed pages. The seed pages are coloured red and the "seen" pages are coloured blue.
-* To remove the pages that are not in the seeds, we can filter the network by outdegree. Set the minimum to 1 and filter - this will ensure that only pages that have been scraped for outlinks are included.
+Das entstandene Netzwerk in Gephi öffnen und Folgendes beobachten:
+* Es gibt deutlich mehr Knoten in diesem Netzwerk als in dem aus [Tutorial 3.1](../3.1/) mit einem ähnlichen Datensatz. Das liegt daran, dass SeeAlsology auch die nächste Ebene an Seiten einbezieht, die von den Startseiten aus „gesehen“ wurden. Die Startseiten sind rot eingefärbt, die „gesehenen“ Seiten blau.
+* Um die Seiten zu entfernen, die keine Startseiten sind, kann das Netzwerk nach Outdegree gefiltert werden. Das Minimum auf 1 setzen und filtern – dadurch bleiben nur Seiten übrig, die tatsächlich nach ausgehenden Links durchsucht wurden.
 
-# Check the protocol
+# Das Protokoll prüfen
 
-Check that you have followed the protocol. **You do not have to do the "ANNOTATE" part** in this tutorial and those that come after, except the last one. Keep in mind, however, that featuring the annotation in the protocol is a good practice.
+Prüfen, ob das Protokoll eingehalten wurde. **Der Schritt „ANNOTATE“ muss in diesem und den folgenden Tutorials nicht durchgeführt werden**, außer im letzten. Trotzdem sollte man beachten, dass es gute Praxis ist, die Annotation im Protokoll zu erwähnen.
 
-# Documents produced
+# Erstellte Dokumente
 
-Keep somewhere, for sharing, the following document:
-* The (unannotated) network map (JPEG, PNG or PDF)
+Für die spätere Weitergabe sollte man Folgendes aufbewahren:
+* Die (nicht annotierte) Netzwerkkarte (JPEG, PNG oder PDF)
 
 ---
 
-### Tools für vergleichbare Daten (GEXF bzw GDF) anderer Quellen:
+### Tools für vergleichbare Daten (GEXF bzw. GDF) anderer Quellen:
 
-* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
-* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.
+* Netzwerke von YouTube-Kanälen oder YouTube-Videos, verbunden über ihre Ähnlichkeit (gemessen an den algorithmischen Empfehlungen), mit den [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Benötigt eine Liste von Video- oder Kanal-IDs als Input.
+* Netzwerke wissenschaftlicher Publikationen, verbunden über Schlagworte oder Zitationen, mit [ScienceScape](http://medialab.github.io/sciencescape/). Benötigt einen vollständigen Export aus Scopus als Input.

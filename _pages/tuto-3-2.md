@@ -7,101 +7,101 @@ title: 3.2. Ein bipartites Netzwerk
 # Übung zur Tool-Sitzung #3
 
 
-**Goals**
-* Visualize a **bipartite** network 
-* Tinker with **centrality metrics**
-* Annotate important nodes
+**Ziele**
+* Ein **bipartites** Netzwerk visualisieren
+* Mit **Zentralitätsmaßen** experimentieren
+* Wichtige Knoten annotieren
 
-# Data
+# Daten
 
-Download this GEXF:
+Diese GEXF herunterladen:
 
-<center><a href="../assets/data/1-9/wikipedia-articles-editors-network.gexf">
+<center><a href="../assets/data/3-2/wikipedia-articles-editors-network.gexf">
 	<i class="fas fa-file" style="font-size:5em"></i><br>
 	wikipedia-articles-editors-network.gexf
 </a><br><br></center>
 
-It is the network of articles and editors connected when an editor contributed to one of the 139 Wikipedia articles in the category [energy conversion](https://en.wikipedia.org/wiki/Category:Energy_conversion) (ignoring subcategories).
+Es handelt sich um das Netzwerk aus Artikeln und Editoren, das entsteht, wenn ein Editor zu einem der 139 Wikipedia-Artikel der Kategorie [energy conversion](https://en.wikipedia.org/wiki/Category:Energy_conversion) beigetragen hat (ohne Unterkategorien).
 
-The file was obtained by feeding this [<i class="fas fa-file-csv"></i>&nbsp;CSV file](../assets/data/1-9/energy-conversion-category-depth-0.csv) into the following script: [🍄&nbsp;Wikipedia articles to articles and editors network](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_articles_and_editors_network.ipynb).
+Die Datei wurde erzeugt, indem diese [<i class="fas fa-file-csv"></i>&nbsp;CSV-Datei](../assets/data/3-2/energy-conversion-category-depth-0.csv) in folgendes Skript eingespeist wurde: [🍄&nbsp;Wikipedia articles to articles and editors network](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_articles_and_editors_network.ipynb).
 
-# Video tutorial
+# Video-Tutorial
 
-Check this tutorial first. It uses the data you just downloaded. Note that you will find the same instructions as text down below.
+Zuerst dieses Tutorial ansehen. Es verwendet die gerade heruntergeladenen Daten. Dieselben Anweisungen finden sich unten auch als Text.
 
 {% include video id="de_sAxlVTNQ" provider="youtube" %}
 
-# Quickly visualize the network
+# Das Netzwerk schnell visualisieren
 
-Quickly visualize the network, and color the nodes according to the attribute ```type```. Do not waste too much time here. The network is **big** and we need to reduce it.
+Das Netzwerk schnell visualisieren und die Knoten nach dem Attribut ```type``` einfärben. An dieser Stelle nicht zu viel Zeit investieren. Das Netzwerk ist **groß**, und es muss zunächst reduziert werden.
 
-Remark the following:
-* Each node can be one of two types: ```article``` or ```editor```
-* Each edge connects an article to an editor. Contrary to the hyperlink network we saw in the previous tutorial, there are no edges between articles. And there are no edges between editors.
-* The edges are not directed (you could say that an editor revises and article, or that an article is being revised by an editor, but contrary to the hyperlink it is not obvious what points to what here).
+Zu beachten:
+* Jeder Knoten kann einen von zwei Typen haben: ```article``` oder ```editor```
+* Jede Kante verbindet einen Artikel mit einem Editor. Anders als beim Hyperlink-Netzwerk aus dem vorherigen Tutorial gibt es keine Kanten zwischen Artikeln. Und auch keine Kanten zwischen Editoren.
+* Die Kanten sind nicht gerichtet (man könnte sagen, ein Editor überarbeitet einen Artikel, oder ein Artikel wird von einem Editor überarbeitet, aber anders als beim Hyperlink ist hier nicht offensichtlich, was auf was verweist).
 
-These are the features of a **bipartite** network.
+Das sind die Merkmale eines **bipartiten** Netzwerks.
 
-Modularity clustering does not work well with bipartite networks, because their structure is generally not clusterized the same way. Instead, we will focus on centrality metrics.
+Modularitäts-Clustering funktioniert bei bipartiten Netzwerken nicht gut, da deren Struktur sich in der Regel nicht auf dieselbe Weise clustert. Stattdessen liegt der Fokus hier auf Zentralitätsmaßen.
 
 [
 	![Network](../assets/images/1-9/preview.png)
 ](../assets/images/1-9/preview.png)
 
 
-# Filter the network
+# Das Netzwerk filtern
 
-99.67% of this network consists of editors. Unsurprising, as each article is edited by many people. We will remove the less interesting editors: the less connected ones.
+99,67 % dieses Netzwerks bestehen aus Editoren. Wenig überraschend, da jeder Artikel von vielen Personen bearbeitet wird. Die weniger interessanten Editoren – die am schwächsten vernetzten – werden entfernt.
 
-Go to the ```Filters``` panel on the right, and locate the following filter:
+Im ```Filters```-Panel rechts folgenden Filter aufsuchen:
 ```
 Filters panel > Topology > Degree Range
 ```
-Drag and drop this filter to the target icon just below, under ```Queries```. A subpanel dedicated to the filter will appear at the bottom.
+Diesen Filter per Drag-and-drop auf das Zielsymbol darunter, unter ```Queries```, ziehen. Unten erscheint ein Unterpanel für den Filter.
 
-In this subpanel, titled ```Degree Range Settings```, is a slider with two handles: it selects a range of values. Double-click on the left value (it displays ```1``` by default), input ```3``` and **hit ```enter```** (or it will not be taken into account).
+In diesem Unterpanel mit dem Titel ```Degree Range Settings``` befindet sich ein Schieberegler mit zwei Griffen, der einen Wertebereich auswählt. Auf den linken Wert doppelklicken (standardmäßig ```1```), ```3``` eingeben und **```Enter``` drücken** (sonst wird der Wert nicht übernommen).
 
-Now click on the ```Filter``` button on the bottom-right. This should filter your network. Your panel should look like this:
+Nun auf den ```Filter```-Button unten rechts klicken. Dadurch sollte das Netzwerk gefiltert werden. Das Panel sollte danach so aussehen:
 
 [
 	![Filter panel](../assets/images/1-9/filter.png)
 ](../assets/images/1-9/filter.png)
 
-**What does it mean?** Filtering hides some nodes along with the edges connected to them. The filter we used only keeps nodes with a certain range of *degree*, that is a certain number of neighbors. Our settings kept only the nodes with 3 neighbors or more.
+**Was bedeutet das?** Beim Filtern werden manche Knoten samt der mit ihnen verbundenen Kanten ausgeblendet. Der verwendete Filter behält nur Knoten mit einem bestimmten *Degree*-Wertebereich, also einer bestimmten Anzahl an Nachbarn. In diesem Fall wurden nur Knoten mit 3 oder mehr Nachbarn beibehalten.
 
-By doing this, we reduced the network to only 5.12% of the nodes, and 24.38% of the edges. It now has a more manageable size: 2,131 nodes and 13,520 edges.
+Dadurch wurde das Netzwerk auf nur noch 5,12 % der Knoten und 24,38 % der Kanten reduziert. Es hat nun eine handlichere Größe: 2.131 Knoten und 13.520 Kanten.
 
-Remark: filters acts on both types of nodes, editors and articles alike, but in this case, as articles have many neighbors, they were left untouched. We only removed editors.
+Anmerkung: Filter wirken auf beide Knotentypen, Editoren wie Artikel gleichermaßen, aber da Artikel viele Nachbarn haben, blieben sie in diesem Fall unangetastet. Entfernt wurden ausschließlich Editoren.
 
 
-# Apply a layout and save
+# Ein Layout anwenden und speichern
 
-We will now completely delete the hidden nodes to free up some computer power.
-* Apply a layout if you want, as we will now save the network.
-* In the menu, click on ```File > Export > Graph file...```.
-* Choose the file type ```GEXF```.
-* Click on ```Visible only``` in the bottom of the window.
-* Name and save your file somewhere.
+Nun werden die ausgeblendeten Knoten vollständig gelöscht, um Rechenleistung freizugeben.
+* Bei Bedarf ein Layout anwenden, da das Netzwerk nun gespeichert wird.
+* Im Menü auf ```File > Export > Graph file...``` klicken.
+* Als Dateityp ```GEXF``` wählen.
+* Unten im Fenster auf ```Visible only``` klicken.
+* Datei benennen und irgendwo speichern.
 
-You can now quit Gephi, and reopen the exported file. You should see something like this:
+Gephi kann nun geschlossen und die exportierte Datei erneut geöffnet werden. Es sollte etwa Folgendes zu sehen sein:
 
 [
 	![Network](../assets/images/1-9/filtered-network.png)
 ](../assets/images/1-9/filtered-network.png)
 
 
-In case something went wrong, here is the [<i class="fas fa-file"></i>&nbsp;filtered GEXF](../assets/data/1-9/wikipedia-articles-editors-network-filtered.gexf).
+Falls etwas schiefgegangen ist, hier die [<i class="fas fa-file"></i>&nbsp;gefilterte GEXF](../assets/data/3-2/wikipedia-articles-editors-network-filtered.gexf).
 
 
-# Compute centrality metrics
+# Zentralitätsmaße berechnen
 
-In the ```Statistics``` panel, on the right, run ```Network diameter```.
+Im ```Statistics```-Panel rechts ```Network diameter``` ausführen.
 
-The network diameter is how many edges there are between the two most distant nodes (in this case, you will find 5). But more importantly, at the same occasion, the article computes some *centrality metrics*, including:
-* *Betweenness centrality*: the higher, the more the node is a bridge, a broker.
-* *Closeness centrality*: the higher, the closer the node is, on average, to the other nodes.
+Der Netzwerkdurchmesser gibt an, wie viele Kanten zwischen den beiden am weitesten voneinander entfernten Knoten liegen (in diesem Fall ergibt sich der Wert 5). Wichtiger ist jedoch, dass dabei gleichzeitig einige *Zentralitätsmaße* berechnet werden, darunter:
+* *Betweenness centrality*: Je höher, desto mehr fungiert der Knoten als Brücke, als Vermittler.
+* *Closeness centrality*: Je höher, desto näher liegt der Knoten im Durchschnitt an den anderen Knoten.
 
-Visualize these centrality metrics as node sizes. Here what it looks like, using sizes from 1 to 10.
+Diese Zentralitätsmaße als Knotengröße visualisieren. So sieht es mit Größen von 1 bis 10 aus.
 
 **Closeness centrality**
 [
@@ -113,34 +113,30 @@ Visualize these centrality metrics as node sizes. Here what it looks like, using
 	![Network](../assets/images/1-9/betweenness.png)
 ](../assets/images/1-9/betweenness.png)
 
-Are those the same? Does it change anything that a node is an article or an editor?
+Sind das dieselben Ergebnisse? Macht es einen Unterschied, ob ein Knoten ein Artikel oder ein Editor ist?
 
-# Annotate a visualization
+# Eine Visualisierung annotieren
 
-The betweenness centrality network is the most interesting one. Export the network map and annotate it in Google Slides.
+Das Netzwerk mit der Betweenness Centrality ist das interessanteste. Die Netzwerkkarte exportieren und in Google Slides annotieren.
 
-We ask you to **annotate the nodes that are important** (ingore the clusters for now). Here are some tips:
-* High betweenness centrality means that the node is a bridge, an intermediary between many other nodes, or in other words a *broker*, an obligatory passage point.
-* Since this network is bipartite, one can say that the brokers are the nodes that contribute the most to connecting the other type of nodes. In that sense, they are structurally important. For example, the editors with the highest betweenness centrality are those who contribute the most to *connecting* articles.
-* In this network, each *connection* corresponds to a revision, i.e. the *act of editing* an article.
-* So broker editors are those who contribute to the most varied articles, and broker articles are where the contributors are the most varied.
+Gefragt ist eine **Annotation der wichtigen Knoten** (die Cluster können vorerst ignoriert werden). Ein paar Tipps:
+* Eine hohe Betweenness Centrality bedeutet, dass der Knoten eine Brücke ist, ein Vermittler zwischen vielen anderen Knoten – anders gesagt ein *Broker*, ein obligatorischer Durchgangspunkt.
+* Da dieses Netzwerk bipartit ist, lässt sich sagen: Die Broker sind die Knoten, die am meisten dazu beitragen, den jeweils anderen Knotentyp zu verbinden. In diesem Sinne sind sie strukturell wichtig. Zum Beispiel sind die Editoren mit der höchsten Betweenness Centrality diejenigen, die am meisten zur *Verbindung* von Artikeln beitragen.
+* In diesem Netzwerk entspricht jede *Verbindung* einer Bearbeitung, also dem *Akt des Editierens* eines Artikels.
+* Broker-Editoren sind also jene, die zu den unterschiedlichsten Artikeln beitragen, und Broker-Artikel sind jene, bei denen die Beitragenden am unterschiedlichsten sind.
 
-Make sure that your annotations are properly formulated to reflect the nature of the data.
+Die Annotationen sollten die Natur der Daten korrekt widerspiegeln.
 
-# Documents produced
+# Erstellte Dokumente
 
-Keep somewhere the following somewhere for sharing:
-* The annotated network (JPEG or PNG)
-
-# Next tutorial
-
-[<i class="fas fa-forward"></i>&nbsp;1.10. Visualize a weighted network *(15 min)*](../1.10/)
+Für die spätere Weitergabe sollte man Folgendes aufbewahren:
+* Das annotierte Netzwerk (JPEG oder PNG)
 
 ---
 
-### Relation to the course readings
+### Bezug zu den Kurslektüren
 
-* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
+* Die Besonderheiten von Wikipedia und die verschiedenen Wege, wie die Plattform für die Kontroversenanalyse genutzt werden kann, werden behandelt in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
-* The principles and concepts of Visual Network Analysis (VNA) are covered in **Chapter 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
-* And in **Chapter 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
+* Die Prinzipien und Konzepte der Visual Network Analysis (VNA) werden behandelt in **Kapitel 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
+* Sowie in **Kapitel 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*

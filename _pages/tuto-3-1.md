@@ -5,195 +5,191 @@ title: 3.1. Gephi-Einführung
 ---
 # Tool-Sitzung #3
 
-**Goals**
-* Learn how to use **Gephi**
-* **Explore** a directed network
-* Export a **network map**
-* Annotate **clusters**
+**Ziele**
+* Lernen, wie man **Gephi** benutzt
+* Ein gerichtetes Netzwerk **erkunden**
+* Eine **Netzwerkkarte** exportieren
+* **Cluster** annotieren
 
-**You need**
-* Gephi installed on your computer (or as a plan B, use [Gephi Lite](https://gephi.org/gephi-lite/) in your browser)
+**Benötigt wird**
+* Gephi, installiert auf dem eigenen Rechner (oder als Plan B [Gephi Lite](https://gephi.org/gephi-lite/) im Browser)
 
-# Data
+# Daten
 
-Download this GEXF:
+Diese GEXF herunterladen:
 
-<center><a href="../assets/data/1-8/energy-conversion-wiki-cat-depth-1.gexf">
+<center><a href="../assets/data/3-1/energy-conversion-wiki-cat-depth-1.gexf">
 	<i class="fas fa-file" style="font-size:5em"></i><br>
 	energy-conversion-wiki-cat-depth-1.gexf
 </a><br><br></center>
 
-It contains 787 Wikipedia pages about energy conversion (1 level of subcategories) connected by their hyperlinks.
+Sie enthält 787 Wikipedia-Seiten zum Thema energy conversion (1 Ebene an Unterkategorien), verbunden durch ihre Hyperlinks.
 
-*Note: you can obtain this network by getting all the pages of the category with the notebook [🍉&nbsp;Wikipedia category to article list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_category_to_article_list.ipynb) then feeding that list into this other notebook: [🍣&nbsp;Wikipedia articles to hyperlinks network (slow and clean)](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_hyperlinks_network_slow_and_clean.ipynb) (10 min to compute). With two levels of subcategories it gives 3,629 articles, which is a bit big for this tutorial. Here is the [<i class="fas fa-file"></i>&nbsp;file](../assets/data/1-8/energy-conversion-wiki-cat-full.gexf) though.*
+*Hinweis: Dieses Netzwerk lässt sich erzeugen, indem man zunächst mit dem Notebook [🍉&nbsp;Wikipedia category to article list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_category_to_article_list.ipynb) alle Seiten der Kategorie abruft und diese Liste dann in ein weiteres Notebook einspeist: [🍣&nbsp;Wikipedia articles to hyperlinks network (slow and clean)](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_hyperlinks_network_slow_and_clean.ipynb) (Rechenzeit ca. 10 Minuten). Mit zwei Ebenen an Unterkategorien ergeben sich 3.629 Artikel, was für dieses Tutorial etwas viel wäre. Hier trotzdem die [<i class="fas fa-file"></i>&nbsp;Datei](../assets/data/3-1/energy-conversion-wiki-cat-full.gexf).*
 
-# Check Gephisto
+# Gephisto ausprobieren
 
-As an entry point to network visualization, you may try [Gephisto](https://jacomyma.github.io/gephisto/).
+Als Einstieg in die Netzwerkvisualisierung kann man [Gephisto](https://jacomyma.github.io/gephisto/) ausprobieren.
 
 [
 	![Gephisto](../assets/images/1-8/gephisto.png)
 ](https://jacomyma.github.io/gephisto/)
 
-This tool makes a network map in one click, but as it cannot guess what you want, it takes decisions in your place. The result might not be that useful to you. You can always retry, though. You may obtain images like this one:
+Dieses Tool erstellt eine Netzwerkkarte mit einem Klick, trifft dabei aber, da es nicht erraten kann, was man möchte, eigene Entscheidungen. Das Ergebnis ist daher nicht immer besonders brauchbar. Man kann es aber jederzeit erneut versuchen. Es lassen sich Bilder wie dieses erzeugen:
 
 [
 	![Network](../assets/images/1-8/gephisto-output.png)
 ](../assets/images/1-8/gephisto-output.png)
 
-Let's move to a more flexible tool: Gephi (and its "Lite" version).
+Weiter geht es mit einem flexibleren Tool: Gephi (und seiner „Lite“-Version).
 
-# Note about Gephi Lite
+# Hinweis zu Gephi Lite
 
-[Gephi Lite](https://gephi.org/gephi-lite/) is the web browser version of Gephi, and it does not need any installation. It does not work with networks as big as the desktop Gephi app, but it has essentially the same functionalities albeit in a slightly different user interface.
+[Gephi Lite](https://gephi.org/gephi-lite/) ist die Browser-Version von Gephi und benötigt keine Installation. Sie kommt mit so großen Netzwerken wie die Desktop-Version nicht zurecht, bietet aber im Wesentlichen dieselben Funktionen, wenn auch in einer etwas anderen Benutzeroberfläche.
 
-**All the things you can do with Gephi in this tutorial and the following ones can also be done with Gephi Lite** even though we use regular Gephi (i.e., the desktop app) as the reference for these tutorials. You may just need to search a little bit to find your way in the user interface (but Gephi Lite is also simpler).
+**Alles, was in diesem und den folgenden Tutorials mit Gephi gemacht wird, lässt sich auch mit Gephi Lite umsetzen**, auch wenn hier durchgehend das reguläre Gephi (also die Desktop-App) als Referenz verwendet wird. In Gephi Lite muss man sich unter Umständen etwas umschauen, um sich zurechtzufinden (dafür ist die Oberfläche dort aber auch einfacher).
 
 [
 	![Gephisto](../assets/images/1-8/gephi-lite.png)
 ](https://gephi.org/gephi-lite/)
 
-# Gephi video tutorials
+# Gephi-Video-Tutorials
 
-**If you have not installed Gephi**, then download the latest version from the website: [Gephi.org](https://gephi.org/).
+**Wer Gephi noch nicht installiert hat**, lädt sich die aktuellste Version von der Website herunter: [Gephi.org](https://gephi.org/).
 
-**Watch these two videos** about how to use Gephi to visualize a network (15 minutes total). You may want to try replicating what they do with the network you just downloaded. Your Gephi is more recent, and you will observe some minor changes.
+**Diese beiden Videos ansehen**, die zeigen, wie man mit Gephi ein Netzwerk visualisiert (insgesamt 15 Minuten). Am besten versucht man, das Gezeigte mit dem gerade heruntergeladenen Netzwerk nachzuvollziehen. Da die eigene Gephi-Version neuer ist, wird man einige kleinere Unterschiede bemerken.
 
 {% include video id="YM_37z_uURM" provider="youtube" %}
 
 {% include video id="0LqY8OfSsKE" provider="youtube" %}
 
-# Visualize the network
+# Das Netzwerk visualisieren
 
-Use Gephi to produce a network map. 
+Mit Gephi eine Netzwerkkarte erstellen.
 
-Apply the Force Atlas 2 algorithm with the default settings but two modifications:
-* Stronger gravity activated
-* Gravity set to 0.05
+Den Force-Atlas-2-Algorithmus mit den Standardeinstellungen anwenden, aber mit zwei Änderungen:
+* ```Stronger gravity``` aktivieren
+* ```Gravity``` auf 0.05 setzen
 
-These modifications ensure that disconnected nodes ("islands") do not drift too far, which causes problems down the line.
+Diese Änderungen sorgen dafür, dass unverbundene Knoten („Inseln“) nicht zu weit abdriften, was später Probleme verursachen würde.
 
-<div class="notice--info"><b>Tip:</b> if the nodes jiggle too much, you can calm them down by lowering the <code>Tolerance (speed)</code> setting.</div>
+<div class="notice--info"><b>Tipp:</b> Wenn die Knoten zu stark zittern, lässt sich das durch Senken der Einstellung <code>Tolerance (speed)</code> beruhigen.</div>
 
-You have to stop the algorithm manually when it has converged (just eyball that it does not significantly move anymore).
+Der Algorithmus muss manuell gestoppt werden, sobald er konvergiert ist (einfach abschätzen, wenn sich nichts mehr nennenswert bewegt).
 
 [
 	![Network](../assets/images/1-8/gephi-01.png)
 ](../assets/images/1-8/gephi-01.png)
 
-<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;Your node placement will differ because the layout is not deterministic.</div>
+<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;Die eigene Knotenanordnung wird abweichen, da das Layout nicht deterministisch ist.</div>
 
-In the ```Statistics``` panel, run the ```Modularity``` algorithm with default settings. It detects clusters.
+Im ```Statistics```-Panel den ```Modularity```-Algorithmus mit Standardeinstellungen ausführen. Er erkennt Cluster.
 
-Color the nodes to highlight clusters visually. In the ```Appearance``` panel, click on the ```Nodes``` button, click on the ```Color``` icon (a palette), click on the ```Partition``` button, and in the drop-down list, pick ```Modularity Class```. Then click on the ```Apply``` button at the bottom of the panel. This colors each node according to the cluster detected by the modularity clustering algorithm.
+Die Knoten einfärben, um die Cluster visuell hervorzuheben. Im ```Appearance```-Panel auf ```Nodes``` klicken, dann auf das ```Color```-Symbol (eine Palette), dann auf ```Partition``` klicken und in der Dropdown-Liste ```Modularity Class``` auswählen. Danach unten im Panel auf ```Apply``` klicken. Dadurch wird jeder Knoten entsprechend dem per Modularitäts-Clustering erkannten Cluster eingefärbt.
 
 [
 	![Network](../assets/images/1-8/gephi-02.png)
 ](../assets/images/1-8/gephi-02.png)
 
-<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;Your clusters will differ because the modularity clustering algorithm is not deterministic either.</div>
+<div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;Die eigenen Cluster werden ebenfalls abweichen, da auch der Modularitäts-Clustering-Algorithmus nicht deterministisch ist.</div>
 
-Set the node size as a function of the indegree (the number of edges coming from other nodes): in the ```Appearance panel```, click on the ```Nodes``` button, click on the ```Size``` icon (the three circles), click on the ```Ranking``` button, then in the drop-down list, select ```In-Degree```, set the ```Min size``` to ```3``` and the ```Max size``` to ```15```, then click on the ```Apply``` button.
+Die Knotengröße als Funktion des Indegrees festlegen (Anzahl der von anderen Knoten eingehenden Kanten): im ```Appearance```-Panel auf ```Nodes``` klicken, dann auf das ```Size```-Symbol (die drei Kreise), dann auf ```Ranking``` klicken, in der Dropdown-Liste ```In-Degree``` auswählen, ```Min size``` auf ```3``` und ```Max size``` auf ```15``` setzen, danach auf ```Apply``` klicken.
 
 [
 	![Network](../assets/images/1-8/gephi-03.png)
 ](../assets/images/1-8/gephi-03.png)
 
 ## Bonus
-If you feel comfortable, you may try doing the following:
-* Generate a different color palette for the modularity class.
-* Apply the Force Atlas 2 layout with the ```LinLog``` mode enabled, which will require you to drastically lower the ```Scaling``` and ```Gravity``` ratios.
-* Apply the Force Atlas 2 layout with ```Prevent Overlap``` enabled as a finishing touch to separate the nodes better.
-* Alternatively, assuming that the labels do not overlap too much, you may use the layout ```Label Adjust``` to unpack the labels artificially.
-* Display node labels with the ```Size mode``` selector set to ```Node size``` (it's the black A in the bottom bar).
+Wer sich sicher genug fühlt, kann zusätzlich Folgendes ausprobieren:
+* Eine andere Farbpalette für die Modularity Class erzeugen.
+* Das Force-Atlas-2-Layout mit aktiviertem ```LinLog```-Modus anwenden, was ein deutliches Absenken der ```Scaling```- und ```Gravity```-Werte erfordert.
+* Das Force-Atlas-2-Layout mit aktiviertem ```Prevent Overlap``` als Feinschliff anwenden, um die Knoten besser voneinander zu trennen.
+* Sofern sich die Beschriftungen nicht zu stark überlappen, lässt sich alternativ das Layout ```Label Adjust``` nutzen, um die Labels künstlich auseinanderzuziehen.
+* Knotenbeschriftungen mit dem ```Size mode```-Schalter auf ```Node size``` anzeigen (das schwarze A in der unteren Leiste).
 
 [
 	![Network](../assets/images/1-8/gephi-04.png)
 ](../assets/images/1-8/gephi-04.png)
 
-# Export an image
+# Ein Bild exportieren
 
-Let's export a PNG image of the network map.
+Nun wird ein PNG-Bild des Netzwerks exportiert.
 
-* Go to the ```Preview``` page (third button on top of Gephi)
-* In the drop-down list, pick the preset ```Default curved``` (curved edges are for directed networks)
-* Click on the ```Refresh``` button on the bottom of the side panel
+* Zur ```Preview```-Seite wechseln (dritter Button oben in Gephi)
+* In der Dropdown-Liste die Voreinstellung ```Default curved``` wählen (gebogene Kanten eignen sich für gerichtete Netzwerke)
+* Unten im Seitenpanel auf ```Refresh``` klicken
 
-At this point you should see something like this:
+An dieser Stelle sollte etwa Folgendes zu sehen sein:
 
 [
 	![Network](../assets/images/1-8/gephi-05.png)
 ](../assets/images/1-8/gephi-05.png)
 
-Remark that there are so many labels that we cannot read them properly. We will mitigate the problem by changing the font size.
+Es fällt auf, dass es so viele Beschriftungen gibt, dass sie sich nicht mehr richtig lesen lassen. Dem wird durch eine Anpassung der Schriftgröße begegnet.
 
-* In the ```Settings``` sidebar, under the ```Node Labels``` section, ensure that the ```Proportional size``` setting is enabled (bigger nodes have a bigger label)
-* In the same section, in the ```Font``` row, click the button on the right labeled ```...```.
-* Change to a smaller font size, click ```OK```, click on the ```Refresh``` button at the bottom of the sidebar, and check that it is good enough. Zoom the view if you need. The biggest nodes should be readable. If not, iterate. Some amount of overlap should be expected.
+* In der ```Settings```-Seitenleiste im Bereich ```Node Labels``` sicherstellen, dass ```Proportional size``` aktiviert ist (größere Knoten erhalten eine größere Beschriftung).
+* Im selben Bereich in der Zeile ```Font``` auf den Button ```...``` rechts klicken.
+* Zu einer kleineren Schriftgröße wechseln, auf ```OK``` klicken, unten in der Seitenleiste auf ```Refresh``` klicken und prüfen, ob es gut genug lesbar ist. Bei Bedarf die Ansicht zoomen. Die größten Knoten sollten lesbar sein. Falls nicht, wiederholen. Eine gewisse Überlappung ist normal.
 
-For us, ```Arial 4``` was good enough.
+Für dieses Beispiel war ```Arial 4``` ausreichend.
 
 [
 	![Network](../assets/images/1-8/gephi-06.png)
 ](../assets/images/1-8/gephi-06.png)
 
-Then export the image as a PNG:
-* Click on ```Export: SVG/PDF/PNG``` on the bottom-left of the screen
-* Set a file name
-* Select the file type ```PNG```
-* Click on ```Options...``` and set a file size of ```2048px x 2048px```
-* Save the file
+Anschließend das Bild als PNG exportieren:
+* Auf ```Export: SVG/PDF/PNG``` unten links klicken
+* Einen Dateinamen festlegen
+* Den Dateityp ```PNG``` wählen
+* Auf ```Options...``` klicken und eine Dateigröße von ```2048px x 2048px``` einstellen
+* Datei speichern
 
-You should obtain a file similar to that one:
+Das Ergebnis sollte etwa so aussehen:
 
 [
 	![Network](../assets/images/1-8/gephi-export.png)
 ](../assets/images/1-8/gephi-export.png)
 
-<div class="notice--info"><b>Note:</b> it is perfectly acceptable to not show lables at all. Just uncheck <code>Show labels</code> in the settings. In this case, you need to add relevant labels as annotations later on.</div>
+<div class="notice--info"><b>Hinweis:</b> Es ist völlig in Ordnung, gar keine Labels anzuzeigen. Dazu einfach <code>Show labels</code> in den Einstellungen deaktivieren. In dem Fall müssen später relevante Beschriftungen als Annotationen ergänzt werden.</div>
 
-# Annotate the visualization
+# Die Visualisierung annotieren
 
-Import the exported image into Google Slide and **annotate the clusters**.
+Das exportierte Bild in Google Slides importieren und **die Cluster annotieren**.
 
-You may want to comment on:
-* The relative size of the clusters
-* The relative density of the clusters (densely packed, or sparse)
-* The position of the clusters (on the size, on the periphery)
-* The distance between the clusters, which relates to how connected they are. Are some clusters more intensely connected?
+Kommentiert werden könnte zum Beispiel:
+* Die relative Größe der Cluster
+* Die relative Dichte der Cluster (dicht gepackt oder eher locker)
+* Die Position der Cluster (in der Mitte, am Rand)
+* Der Abstand zwischen den Clustern, der Aufschluss darüber gibt, wie stark sie verbunden sind. Sind manche Cluster stärker miteinander verbunden als andere?
 
-**Link these observations with the topic of energy conversion.** Clusters can be used to identify the subtopics of energy conversion. Are certain subtopics more important than others? In which way? Can you compare the subtopics?
+**Diese Beobachtungen mit dem Thema energy conversion verknüpfen.** Cluster lassen sich nutzen, um Teilthemen von energy conversion zu identifizieren. Sind bestimmte Teilthemen wichtiger als andere? Auf welche Weise? Lassen sich die Teilthemen vergleichen?
 
-Prioritize the most interesting observations in your annotations.
+Die interessantesten Beobachtungen in den Annotationen priorisieren.
 
-The beginning of an annotation could look something like this:
+Der Anfang einer Annotation könnte etwa so aussehen:
 
 [
 	![Network](../assets/images/1-8/MappingControversies_AnnotationExamples_FirstNetwork.svg)
 ](../assets/images/1-8/MappingControversies_AnnotationExamples_FirstNetwork.svg)
 
-You can find a [template here](https://docs.google.com/presentation/d/1sUoBD0Q0DjBOsV-lgFbvlVQIGF4gYfWbUN88iE-GUTQ/edit?usp=sharing) - feel free to make a copy and continue annotating, or simply start your own from scratch. 
+Hier gibt es eine [Vorlage](https://docs.google.com/presentation/d/1sUoBD0Q0DjBOsV-lgFbvlVQIGF4gYfWbUN88iE-GUTQ/edit?usp=sharing) – am besten eine eigene Kopie erstellen und darin weiter annotieren, oder ganz von vorne beginnen.
 
-# Documents produced
+# Erstellte Dokumente
 
-Keep somewhere, for sharing, the following document:
-* The annotated network (JPEG or PNG)
+Für die spätere Weitergabe sollte man Folgendes aufbewahren:
+* Das annotierte Netzwerk (JPEG oder PNG)
 
-# Next tutorial
+---
 
-Take a break before you get to this:
+### Bezug zu den Kurslektüren
 
-[<i class="fas fa-forward"></i>&nbsp;1.9. Visualize a bipartite network *(30 min)*](../1.9/)
-
-### Relation to course readings
-
-* The principles and concepts of Visual Network Analysis (VNA) are covered in **Chapter 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
-* And in **Chapter 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
-* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
+* Die Prinzipien und Konzepte der Visual Network Analysis (VNA) werden behandelt in **Kapitel 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
+* Sowie in **Kapitel 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
+* Die Besonderheiten von Wikipedia und die verschiedenen Wege, wie die Plattform für die Kontroversenanalyse genutzt werden kann, werden behandelt in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
-* A similar network is described in **Figure 48** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*:
+* Ein ähnliches Netzwerk wird beschrieben in **Abbildung 48** von *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*:
 
 [
 	![Overview tuto 1.10](https://medihal.archives-ouvertes.fr/hal-03227362/image)
 ](https://medihal.archives-ouvertes.fr/hal-03227362/image)
-*Network of pages from the “Circumcision” category on Wikipedia connected by all hyperlinks between them. Pages about male circumcision group on the left (dark gray with white center), while pages about female circumcision (known here as female genital mutilation) group on the right (white with black center)*
+*Netzwerk von Seiten der Kategorie „Circumcision“ auf Wikipedia, verbunden durch alle Hyperlinks zwischen ihnen. Seiten über männliche Beschneidung gruppieren sich links (dunkelgrau mit weißer Mitte), während Seiten über weibliche Beschneidung (hier als „female genital mutilation“ bezeichnet) sich rechts gruppieren (weiß mit schwarzer Mitte).*

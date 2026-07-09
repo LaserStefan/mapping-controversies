@@ -1,74 +1,70 @@
 ---
 permalink: /5.2/
 layout: single
-title: "5.2. Follow the protocol: co-reference network from a category"
+title: "5.2. Dem Protokoll folgen: Co-Referenz-Netzwerk aus einer Kategorie"
 ---
 
 # Übungen für das zweite Semester
 
 
-**Goals**
-* Check **two new Jupyter notebooks**
-* Check how **Wikipedia categories** can be repurposed to get data
-* **Harvest** a co-reference network from a Wikipedia category
-* Follow a more complex protocol
+**Ziele**
+* **Zwei neue Jupyter-Notebooks** kennenlernen
+* Prüfen, wie sich **Wikipedia-Kategorien** zur Datengewinnung nutzen lassen
+* Ein Co-Referenz-Netzwerk aus einer Wikipedia-Kategorie **sammeln**
+* Einem komplexeren Protokoll folgen
 
-# Datum
+# Daten
 
-The only data we need is this single bit of text:
+Die einzige benötigte Angabe ist dieser kurze Text:
 
 ```
 Category:Energy conversion
 ```
 
-This is just the title of the [Wikipedia category on energy conversion](https://en.wikipedia.org/wiki/Category:Energy_conversion). It's nevertheless a *datum* (singular of data)!
+Das ist lediglich der Titel der [Wikipedia-Kategorie zu energy conversion](https://en.wikipedia.org/wiki/Category:Energy_conversion). Trotzdem ist es ein *Datum* (Singular von Daten)!
 
-A category on Wikipedia is a collection of pages about a specific topic curated by the editors. Notice that there are subcategories inside the category. This means that some pages are found directly in the category, while other pages that might still be topically relevant are found at deeper levels of subcategories. Level 0 would be pages found directly in the category, while level 2 would be pages found inside a subcategory of a subcategory of the category. We will make use of that to control the harvest below.
+Eine Kategorie auf Wikipedia ist eine von den Editoren kuratierte Sammlung von Seiten zu einem bestimmten Thema. Innerhalb der Kategorie gibt es auch Unterkategorien. Das bedeutet, manche Seiten befinden sich direkt in der Kategorie, während andere, thematisch ebenfalls relevante Seiten sich auf tieferen Ebenen von Unterkategorien befinden. Ebene 0 wären Seiten, die direkt in der Kategorie liegen, während Ebene 2 Seiten wären, die innerhalb einer Unterkategorie einer Unterkategorie der Kategorie liegen. Das wird im Folgenden genutzt, um die Erhebung zu steuern.
 
-# Protocol
+# Protokoll
 
-Here is the protocol (you can skip the annotation as you have already done something similar in Tutorial 1.10):
+Hier das Protokoll (die Annotation kann übersprungen werden, da bereits etwas Ähnliches in Tutorial 3.2 gemacht wurde):
 
 [
 	![Overview tuto 2.3](../assets/images/2-3/Protocol_Tutorial2-3.svg)
 ](../assets/images/2-3/Protocol_Tutorial2-3.svg)
 
 
-Follow these instructions:
-* Harvest the Wikipedia articles listed in a Wikipedia category
-	* The Wikipedia category is *energy conversion*
-	* Use a ```max level``` of 0 (harvest no subcategories)
-	* Use the following notebook: [🍉&nbsp;Wikipedia category to article list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_category_to_article_list.ipynb)
-	* You should obtain a [<i class="fas fa-file-csv"></i> CSV list](../assets/data/2-3/wikipedia-articles.csv) of 139 articles
-* Harvest a co-reference network (articles connected when they share one or more references)
-	* Use the list of articles as an input
-	* Use the following notebook: [🫕&nbsp;Wikipedia articles to co-reference network](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_co_reference_network.ipynb)
-	* You should obtain a [<i class="fas fa-file"></i> GEXF](../assets/data/2-3/wikipedia-articles-coreference-network.gexf)
-* Visualize the GEXF in Gephi
-	* Export the network map as an image
+Folgende Anweisungen befolgen:
+* Die in einer Wikipedia-Kategorie aufgeführten Wikipedia-Artikel sammeln
+	* Die Wikipedia-Kategorie ist *energy conversion*
+	* Ein ```max level``` von 0 verwenden (keine Unterkategorien sammeln)
+	* Folgendes Notebook verwenden: [🍉&nbsp;Wikipedia category to article list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_category_to_article_list.ipynb)
+	* Als Ergebnis sollte eine [<i class="fas fa-file-csv"></i> CSV-Liste](../assets/data/5-2/wikipedia-articles.csv) mit 139 Artikeln entstehen
+* Ein Co-Referenz-Netzwerk sammeln (Artikel werden verbunden, wenn sie eine oder mehrere Referenzen teilen)
+	* Die Artikelliste als Input verwenden
+	* Folgendes Notebook verwenden: [🫕&nbsp;Wikipedia articles to co-reference network](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_co_reference_network.ipynb)
+	* Als Ergebnis sollte eine [<i class="fas fa-file"></i> GEXF](../assets/data/5-2/wikipedia-articles-coreference-network.gexf) entstehen
+* Die GEXF in Gephi visualisieren
+	* Die Netzwerkkarte als Bild exportieren
 
-If you've done it all, bravo! You have discovered two new notebooks that you can use later on. The network map you have produced is basically the same as that of [tutorial 1.10](../1.10/), except it has less nodes. If you have more time, you can get the big network: just set ```max level``` at 2. It's just a bit long for the time we have...
+Wer das alles geschafft hat, bravo! Damit wurden zwei neue Notebooks entdeckt, die sich auch später noch nutzen lassen. Die erstellte Netzwerkkarte entspricht im Wesentlichen der aus [Tutorial 1.10](../1.10/), nur mit weniger Knoten. Bei mehr Zeit lässt sich auch das große Netzwerk erzeugen: dafür einfach ```max level``` auf 2 setzen. Für die vorhandene Zeit ist das allerdings etwas viel...
 
-# Documents produced
+# Erstellte Dokumente
 
-Keep somewhere, for sharing, the following document:
-* The (unannotated) network map (JPEG or PNG)
-
-# Next activity
-
-[<i class="fas fa-forward"></i>&nbsp;2.4. Write the protocol: Article-editor network from a category *(30 min)*](../2.4/)
+Für die spätere Weitergabe sollte man Folgendes aufbewahren:
+* Die (nicht annotierte) Netzwerkkarte (JPEG oder PNG)
 
 ---
 
-### Relation to the course readings
+### Bezug zu den Kurslektüren
 
-* The process of getting data through scraping, crawling and calling APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
-* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
+* Der Prozess der Datenerhebung über Scraping, Crawling und API-Aufrufe wird behandelt in **Kapitel 6: Collecting and curating digital records** von *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
+* Die Besonderheiten von Wikipedia und die verschiedenen Wege, wie die Plattform für die Kontroversenanalyse genutzt werden kann, werden behandelt in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
-* The principles and concepts of Visual Network Analysis (VNA) are covered in **Chapter 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
-* And in **Chapter 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
+* Die Prinzipien und Konzepte der Visual Network Analysis (VNA) werden behandelt in **Kapitel 2: What is visual network analysis** in *Jacomy, M. (2021). Situating Visual Network Analysis*
+* Sowie in **Kapitel 7: Visual network analysis** in *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide*
 
-### Tools for getting similar data (networks in GEXF or GDF format) from other sources:
+### Tools für vergleichbare Daten (Netzwerke im GEXF- oder GDF-Format) aus anderen Quellen:
 
-* Networks of YouTube channels or YouTube videos connected by their relatedness (as meassured by the algorithmic recommendations) with the [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Takes a list of video or channel ID's as input.
-* Networks of scientific publications connected through keywords or citations with [ScienceScape](http://medialab.github.io/sciencescape/). Takes a full export from Scopus as input.
+* Netzwerke von YouTube-Kanälen oder YouTube-Videos, verbunden über ihre Ähnlichkeit (gemessen an den algorithmischen Empfehlungen), mit den [YouTube Data Tools](https://tools.digitalmethods.net/netvizz/youtube/). Benötigt eine Liste von Video- oder Kanal-IDs als Input.
+* Netzwerke wissenschaftlicher Publikationen, verbunden über Schlagworte oder Zitationen, mit [ScienceScape](http://medialab.github.io/sciencescape/). Benötigt einen vollständigen Export aus Scopus als Input.
