@@ -4,7 +4,7 @@ layout: single
 title: "5.1. Das Protokoll schreiben: von einem Artikel aus mit SeeAlsology scrapen"
 ---
 
-# Mit dieser Übung startet man ins zweite Semester
+# Extra Übung
 
 Das sind noch die rohen Dateien, wie sie aus der englischsprachigen Übersetzung kommen. Wer möchte, kann schon einmal hereinschauen.
 Hinzu kommen werden Informationen dazu, was es mit einem „Protokoll“ auf sich hat. Stay tuned.

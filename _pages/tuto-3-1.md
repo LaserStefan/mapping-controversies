@@ -3,7 +3,7 @@ permalink: /3.1/
 layout: single
 title: 3.1. Gephi-Einführung
 ---
-# Tool-Sitzung #3
+# Too #3
 
 **Ziele**
 * Lernen, wie man **Gephi** benutzt

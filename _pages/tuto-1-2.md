@@ -3,7 +3,7 @@ permalink: /1.2/
 layout: single
 title: 1.2. Andere Daten mit Tableau darstellen
 ---
-# Tool-Sitzung #1
+# Tool #1
 
 Das ist eine Übung für Zuhause: eine zweite Visualisierung.
 

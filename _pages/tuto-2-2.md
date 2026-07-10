@@ -3,110 +3,109 @@ permalink: /2.2/
 layout: single
 title: 2.2. Daten mit Jupyter-Notebooks scrapen
 ---
-# Tool-Sitzung #2
+# Tool #2
 
-**Ziele**
-* Lernen, wie man ein **Jupyter-Notebook** über Jupyter ausführt. Siehe https://ruhr-uni-bochum.jupyterhub.nrw/
-* Eine API aufrufen, um Daten zu erhalten
-* Eine annotierte Visualisierung erstellen
+**Goals**
+* Learn how to run a **Jupyter notebook** from Jupyter. See https://ruhr-uni-bochum.jupyterhub.nrw/
+* Call an API to get data
+* Make an annotated visualization 
 
-*Hinweis: Ab hier sind die Beispieldaten noch die alten (Thema „energy conversion“). Sie werden demnächst durch KI-bezogene Beispiele ersetzt. Aktuell dient dieser Abschnitt also nur zum Testen des Ablaufs.*
+# Der Fall
 
-# Fall
-
-Noch immer das Thema *energy conversion*, diesmal aber mit 22 Artikeln (weshalb sich ein Notebook anbietet).
+Wir bleiben bei KI, nun aber mit 5k Einträgen! Hierfür muss man automatisieren.
 
 # Daten
 
-Diese CSV herunterladen:
+CSV:
 
-<center><a href="../assets/data/2-2/wikipedia-edits-1-2.csv">
+<center><a href="../assets/data/1-2/wikipedia-articles_AI.csv">
 	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
-	wikipedia-edits-1-2.csv
+	wikipedia-articles_AI.csv
 </a><br><br></center>
 
-Sie enthält lediglich eine Liste von 22 Artikeln zum Thema energy conversion. Diese Liste ist eigentlich nur ein kleiner Ausschnitt aller Artikel zu energy conversion, sollte aber für den Anfang genügen.
+Hier ist eine Liste aller KI-gerankten Artikel enthalten. 
 
-Wer möchte, kann auch die [<i class="fas fa-file-csv"></i> Liste mit 139 Artikeln](../assets/data/2-2/wikipedia-articles-AI-1.2.csv) aus der ersten Ebene der [Wikipedia-Kategorie](https://en.wikipedia.org/wiki/Category:Energy_conversion) ausprobieren. In dem Fall dauert der Notebook-Lauf etwa 10 Minuten.
+# Open the notebook in Google Colab
 
-# Das Notebook in Google Colab öffnen
+A bit of context:
+* A *Jupyter notebook* is an online document that contains executable code (in Python), text, and images.
+* Executing the code requires a computer. Und wir verbinden uns mit JupyterLab, einer virtuellen Maschine, die das für uns ausführt.
+* The script calls the API of Wikipedia to ask for all the edits on each of the pages on the list. These edits are called reivions and are available through [this endpoint](https://www.mediawiki.org/wiki/API:Revisions). 
 
-Etwas Kontext:
-* Ein *Jupyter-Notebook* ist ein Online-Dokument, das ausführbaren Code (in Python), Text und Bilder enthält.
-* Um den Code auszuführen, braucht man einen Computer. Zum Beispiel den eigenen Rechner mit [Anaconda](https://docs.anaconda.com/anaconda/); das wird hier aber nicht verwendet.
-* Stattdessen wird [Google Colab](https://colab.research.google.com/) genutzt, eine Umgebung von Google, in der der Code auf einer virtuellen Maschine ausgeführt wird. Dafür ist ein Google-Konto nötig (genau wie bei Sheets).
-* Das Skript ruft die API von Wikipedia auf und fragt für jeden Artikel der Liste alle Bearbeitungen ab. Diese Bearbeitungen heißen Revisions und sind über [diesen Endpoint](https://www.mediawiki.org/wiki/API:Revisions) erreichbar.
-
-Verwendet wird folgendes Skript. Es öffnet sich direkt in Colab (liegt aber eigentlich [auf GitHub](https://github.com/jacomyma/mapping-controversies/tree/main/notebooks)).
+We will use the following script. It opens directly in Colab (although it is actually [stored on GitHub](https://github.com/jacomyma/mapping-controversies/tree/main/notebooks)).
 
 **[🍹&nbsp;Wikipedia articles to edits list](https://colab.research.google.com/github/jacomyma/mapping-controversies/blob/main/notebooks/Wikipedia_articles_to_edits_list.ipynb)**
 
-*Hinweis: Das Emoji jedes Notebooks dient nur dazu, sich leichter zu merken, welches Notebook was macht.*
+*Note: the emoji of each notebook is just there to help you memorize which notebook does what.*
 
-Zuerst aber **dieses Tutorial ansehen.** Es verwendet dieselbe Datei und dasselbe Notebook.
+But **check this tutorial first.** It uses the same file and notebook.
 
 {% include video id="UPyGLa4q_Dw" provider="youtube" %}
 
-# Das Notebook ausführen, um Daten zu sammeln
+# Run the notebook to harvest data
 
-* **Hochladen:** Die CSV-Daten in die virtuelle Maschine laden. Dazu links auf das ```File```-Symbol klicken, dann auf das Symbol oben, das ```Upload to session storage``` heißt, und die CSV von oben hochladen.
-* Den Text des Notebooks lesen, inklusive ```SETTINGS```, bis vor ```SCRIPT```. Der Code selbst muss nicht verstanden werden, nur das, was er tut.
-* **Einstellungen anpassen.** Insbesondere der Name der Eingabedatei stimmt wahrscheinlich nicht mit dem angegebenen überein. Entweder die Variable in den Einstellungen ändern oder die Datei in der virtuellen Maschine umbenennen.
-* **Notebook ausführen.** Jede Zelle kann einzeln ausgeführt werden, empfohlen wird aber, alles auf einmal über das Menü ```Runtime > Run all``` laufen zu lassen. Fertig ist es, wenn die *letzte Zelle* „Done“ ausgibt.
-* **Herunterladen:** Die Ausgabedatei aus der virtuellen Maschine herunterladen. Dazu zunächst die Dateien der virtuellen Maschine in der Seitenleiste über das ```Refresh```-Symbol aktualisieren. Dann die Ausgabedatei suchen, deren Name in den Einstellungen des Skripts angegeben wurde, und sie über das Dropdown-Menü (die drei Punkte rechts neben der Datei) herunterladen.
+* **Upload** the CSV data into the virtual machine. Click on the ```File``` icon on the left, then on the icon on top the reads ```Upload to session storage``` and upload the CSV from above.
+* Read the notebook text itself, ```SETTINGS``` included, stopping at ```SCRIPT```. You are not expected to understand the code itself. Just what it does.
+* **Edit the settings.** In particular, the name of the input file is probably not that indicated in the settings. You can change the variable in the settings, or rename the file in the virtual machine.
+* **Run the notebook.** Each cell can be executed individually, but we recommend to run everything at once from the menu: ```Runtime > Run all```. It is done when the *last cell* outputs "Done".
+* **Download** the output file from the virtual machine. First you to refresh the files of the virtual machine, in the side bar, by clicking on the ```Refresh``` icon. Then look for the output file, whose name was specified in the settings of the script, and download it via its drop-down menu, on the three dots on the right of the file.
 
-Das Ergebnis sollte etwa wie [<i class="fas fa-file-csv"></i> diese Datei](../assets/data/2-2/wikipedia-edits-tuto-1.2.csv) aussehen.
+You should obtain a file like [<i class="fas fa-file-csv"></i> this one](../assets/data/1-6/wikipedia-edits - 22 energy conversion articles.csv).
 
-# Eine annotierte Visualisierung erstellen
+# Make an annotated visualization
 
-Die Übung entspricht im Grunde den Tutorials [1.2](../1.2/) und [1.3](../1.3/), nur mit mehr Artikeln.
-
-Die Tableau-Visualisierung könnte etwa so aussehen...
+The tableau visualization may look like this...
 
 [
 	![Timeline](../assets/images/1-6/timeline.png)
 ](../assets/images/1-6/timeline.png)
 
-...oder auch so...
+...or maybe like that...
 
 [
 	![Stacked timeline](../assets/images/1-6/stacked-timeline.png)
 ](../assets/images/1-6/stacked-timeline.png)
 
-...und es gibt noch viele weitere Möglichkeiten.
+...and there are many other possibilities.
 
-**Das Notebook erlaubt es, mit größeren Datenmengen zu arbeiten, was neue Forschungsfragen eröffnet.** Eine davon lässt sich für die Annotationen aufgreifen:
-* Sind die Artikel synchron oder nicht? Werden sie zur gleichen Zeit bearbeitet?
-* Sind manche Artikel älter, andere neuer? *Hinweis: Würde man dafür auf das Datum der ersten Bearbeitung schauen, oder auf etwas anderes?*
-* Gibt es unterschiedliche Zeitpunkte, an denen verschiedene Artikel besonders viele Bearbeitungen erhalten?
-* Werden bestimmte Artikel nur in bestimmten Weltregionen bearbeitet?
+**The notebook allows dealing with bigger data, which unlocks new research questions.** You may pick one of those for your annotations:
+* Are the articles synchronized or not? Are they edited at the same time?
+* Are some articles older, more recent? *Note: would you look at the date of first edit, or something else?*
+* Are there different moments where different articles get the most revisions?
+* Are certain articles only edited in certain parts of the world?
 
-**Tipp:** Man kann die Dimension ```Article``` im ```Pages```-Bereich von Tableau nutzen ([siehe Hilfe](https://help.tableau.com/current/reader/desktop/en-us/pages_shelf.htm)), um schnell zwischen Artikeln zu vergleichen.
+**Tip:** you can use the ```Article``` dimension in Tableau's ```Pages``` shelf ([see help](https://help.tableau.com/current/reader/desktop/en-us/pages_shelf.htm)) to quickly compare across Articles.
 
 [
 	![Stacked timeline](../assets/images/1-6/pages.png)
 ](../assets/images/1-6/pages.png)
 
-# Erstellte Dokumente
+# Documents produced
 
-Für die spätere Weitergabe sollte man Folgendes aufbewahren:
-* Die annotierte Visualisierung (JPEG oder PNG)
+Keep somewhere, for sharing, the following document:
+* The annotated visualization (JPEG or PNG)
+
+# Next tutorial
+
+Last break before lunch! Then head for the last activity of the morning:
+
+[<i class="fas fa-forward"></i>&nbsp;1.7. Activate your knowledge about Tableau *(30 min)*](../1.7/)
 
 ---
 
-### Weiterführende Ressourcen
+### Additional resources
 
 * [Intro to Google Colab in 3 minutes](https://www.youtube.com/watch?v=inN8seMm7UI).
-* [Eine Liste weiterer Endpoints, die man per Skript aufrufen kann, um Daten aus der Wikipedia-API zu erhalten](https://www.mediawiki.org/w/api.php?action=help&modules=query).
+* [A list of other endpoints you could call with a script to get data from the Wikipedia API](https://www.mediawiki.org/w/api.php?action=help&modules=query).
 
-### Bezug zu den Kurslektüren
+### Relation to the course readings
 
-* Der Prozess der Datenerhebung über APIs wird behandelt in **Kapitel 6: Collecting and curating digital records** von *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
-* Die Besonderheiten von Wikipedia und die verschiedenen Wege, wie die Plattform für die Kontroversenanalyse genutzt werden kann, werden behandelt in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
+* The process of getting data through APIs is covered in **Chapter 6: Collecting and curating digital records** of *Venturini, T. & Munk, A.K. (2021). Controversy Mapping: A Field Guide.*
+* The intricacies of Wikipedia and the different ways in which the platform may be reappropriated for controversy analysis are covered in *Weltevrede, E., & Borra, E. (2016).* **Platform affordances and data practices: The value of dispute on Wikipedia**
 *Big Data & Society, 3(1).*
 
-### Tools für vergleichbare Daten (CSV-Format mit Zeitstempeln) aus anderen Quellen:
+### Tools for getting similar data (CSV format with timestamps) from other sources:
 
-* [Suchinteresse im Zeitverlauf mit Google Trends](https://trends.google.com/trends/?geo=DK). Kann nach geografischen Regionen oder anderen Google-Plattformen wie YouTube, News oder Shopping gefiltert werden.
-* [Publikationsaktivität zu einem Thema im Zeitverlauf in wissenschaftlichen Zeitschriften mit Scopus](https://www.scopus.com/). Hierfür ist der universitäre Login erforderlich.
-* [Aktivität auf öffentlichen Facebook-Seiten im Zeitverlauf mit FacePager](https://github.com/strohne/Facepager). Hierfür muss die Software installiert werden.
+* [Search interest over time with Google Trends](https://trends.google.com/trends/?geo=DK). Note that this can be filtered to geographical regions or other Google platforms such as YouTube, News or Shopping.
+* [Publication activity around a topic over time in scientific journals with Scopus](https://www.scopus.com/). Note that you will need to use your university login.
+* [Activity on public Facebook pages over time with FacePager](https://github.com/strohne/Facepager). Note that you will need to install the software.

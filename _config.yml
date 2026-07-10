@@ -139,10 +139,7 @@ author:
       url: "/mapping-controversies/5.2/"
     - label: "5.3 Gephi Erweiterung"
       icon: "fas fa-flask"
-      url: "/mapping-controversies/5.3/"
-    - label: "5.4 Gephi-Erweiterung"
-      icon: "fas fa-flask"
-      url: "/mapping-controversies/5.4/"     
+      url: "/mapping-controversies/5.3/"     
 # Site Footer
 footer:
   links:

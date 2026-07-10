@@ -4,7 +4,7 @@ layout: single
 title: 3.2. Ein bipartites Netzwerk
 ---
 
-# Übung zur Tool-Sitzung #3
+# Übung 
 
 
 **Ziele**

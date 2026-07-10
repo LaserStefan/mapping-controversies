@@ -3,7 +3,7 @@ permalink: /1.1/
 layout: single
 title: 1.1. Einführung in Tableau und Visualisierung
 ---
-# Tool-Sitzung #1
+# Too #1
 
 **Ziele**
 * Arbeit mit **Tableau Desktop**, einer populären Visualisierungs-Software
