@@ -11,9 +11,60 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 
 **Daten:** Zentrale Grundlage sind daten der Wikipedia, aber die Techniken und Jupyter-Notebooks sind für weitere Datentypen nutzbar. Siehe die Notebooks für weitere Quellen, wie etwa Reddit. Jenseits von Anders Munk und Mathieu Jacomy sei hier an die [Digital Methods-Initiatve verwiesen](https://www.digitalmethods.net/).
 
-**Tools:** Tableau, Gephi, und [Jupyter Notebooks mit Python](nb/). Wir erschließen die Tools in den unteren Tutorials; keine weitere Vorerfahrungen sind notwendig.
+**Tools:** Contropedia, Tableau, Gephi, und [Jupyter Notebooks mit Python](nb/). Wir erschließen die Tools in den unteren Tutorials; keine weitere Vorerfahrungen sind notwendig.
+
+## Übersicht des Workflows
+```mermaid
+flowchart TD
+    K[Kontroverse als leitende Problematik]
+    K --> K1["hot" statt cold (evtl. über Archive erschließen)]
+    K --> K2[spezifisch statt allgemein]
+    K --> K3[Expertenwissen fokussiert statt Allgemeinwissen]
+    K --> K4[soziale Situation rückgebunden]
+
+    K --> T[konkrete KI-Technologie und Kontroverse benennen, keine PR/Hype-Begriffe]
+
+    T --> SC[vier Sciebo-Umfelder]
+
+    SC --> G1[Arbeit]
+    SC --> G2[Bildung]
+    SC --> G3[Umwelt]
+    SC --> G4[Gewalt]
+
+    G1 --> G1a[Logbuch]
+    G1 --> G1b[Forschungsmaterial 1]
+    G1 --> G1c[Forschungsmaterial 2]
+    G1 --> G1d[Analysen]
+    G1 --> G1e[Memos]
+
+    G2 --> G2a[Logbuch]
+    G2 --> G2b[Forschungsmaterial 1]
+    G2 --> G2c[Forschungsmaterial 2]
+    G2 --> G2d[Analysen]
+    G2 --> G2e[Memos]
+
+    G3 --> G3a[Logbuch]
+    G3 --> G3b[Forschungsmaterial 1]
+    G3 --> G3c[Forschungsmaterial 2]
+    G3 --> G3d[Analysen]
+    G3 --> G3e[Memos]
+
+    G4 --> G4a[Logbuch]
+    G4 --> G4b[Forschungsmaterial 1]
+    G4 --> G4c[Forschungsmaterial 2]
+    G4 --> G4d[Analysen]
+    G4 --> G4e[Memos]
+
+    SC --> AT[Arbeitsteilung bei der Datenerhebung, pro Gruppe drei mögliche Rollen, enge Zusammenarbeit/ggf. überscheinend]
+
+    AT --> Q1[quantitativ: Wikipedia-Datenverlauf, Versionsgeschichte und Revisionen]]
+    AT --> Q2[qualitativ: verlinkte Newsartikel aus Wikipedia-Quellen, vertieftende Analyse]
+    AT --> Q3[Expert:inneneninterviews]
+```
 
 ## Übersicht der angestrebten Ergebnisse und benötigter Tools
+
+[Contropedia](https://roaring-horse-7a6c46.netlify.app/network) für qualitative Analyse (Schwesterumgebung).
 
 | # | Ergebnis | Datenquelle | Aufbereitung | Visualisierung | Interpretation | Module |
 |---|---|---|---|---|---|---|
