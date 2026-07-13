@@ -39,8 +39,8 @@ Neben der lokalen Vorbereitung (auf Deutsch) gibt es ein englischsprachiges Vide
 
 # Daten in Tableau laden
 
-* Tableau installieren (kostenlos, Desktop-Version): https://www.tableau.com/products/desktop
-* Tableau Desktop öffnen: "kostenlose Version" nutzen, anmelden
+* Tableau installieren (kostenlos, Desktop-Version): [https://www.tableau.com/products/desktop](https://www.tableau.com/products/desktop)
+* Tableau Desktop öffnen: "kostenlose Version" nutzen, registrieren, anmelden
 * Die CSV-Datei öffnen. Dazu aufrufen: "To a File" und dann: "Text file", hier die entsprechende Datei auswählen: ```pageviews-20210101-20260331```
 * Sind die Daten richtig geladen? Sind drei Spalten zu sehen. Wenn nicht, müssen [die Einstellungen angepasst werden](https://help.tableau.com/current/pro/desktop/en-gb/examples_text.htm#set-text-file-options).
 * Ist der Type der Spalte korrekt? Erste Spalte: Datum/date. Hier muss mit einem Klick auf das kleine blaue Symbol [der Typ gewechselt werden](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
