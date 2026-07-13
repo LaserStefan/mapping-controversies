@@ -4,6 +4,8 @@
 
 Das ist ein Repo für den Kontroversen-Mapping-Kurs zu KI. Die Inhalte sind übertragen und vereinfacht von https://jacomyma.github.io/mapping-controversies/. Danke an Anders Munk und Mathieu Jacomy!
 
+Das Seminar basiert auch auf einem qualitativen Teil, womit Wikipedia-Comments qualitativ aufbereitet werden können. Das ist ein aktualisiertes Contropedia-Tool: https://l.rub.de/a55f69b6
+
 ### Die Website
 
 [https://laserstefan.github.io/mapping-controversies/](https://laserstefan.github.io/mapping-controversies/)
