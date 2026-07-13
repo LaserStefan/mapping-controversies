@@ -8,9 +8,10 @@ title: 1.1. Einführung in Tableau und Visualisierung
 **Ziele**
 * Arbeit mit **Tableau Desktop**, einer populären Visualisierungs-Software
 * Die Annotation eines Ergebnisses
+* Eine solche Übersicht ist oft ein idealer und dankbarer Einstieg in eine Kontroverse jeglicher Art.
 
 **Was gebraucht wird**
-* Tableau Desktop 
+* [Tableau Desktop](https://www.tableau.com/products/desktop) 
 * Zugang zu einer Slide-Software: Office 
 
 # Der Fall
@@ -29,7 +30,7 @@ Download:
 </a><br><br></center>
 
 Enthalten sind Daten von Wikipedia von 2021 to 2026.
-Dieses [tool](https://pageviews.toolforge.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2015-07&end=2021-12&pages=Space-based_solar_power|Thorium-based_nuclear_power) wurde benutzt, worauf wir noch zurückkommen werden in der nächsten Sitzung.
+Dieses [tool](https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2020-01&end=2026-06&pages=AI_risk|AI_safety) wurde benutzt, worauf wir noch zurückkommen werden in der nächsten Sitzung.
 
 # Video
 Neben der lokalen Vorbereitung (auf Deutsch) gibt es ein englischsprachiges Video mit Erklärungen von Mathieu.
@@ -38,10 +39,11 @@ Neben der lokalen Vorbereitung (auf Deutsch) gibt es ein englischsprachiges Vide
 
 # Daten in Tableau laden
 
-* Tableau Desktop öffnen
+* Tableau installieren (kostenlos, Desktop-Version): https://www.tableau.com/products/desktop
+* Tableau Desktop öffnen: "kostenlose Version" nutzen, anmelden
 * Die CSV-Datei öffnen. Dazu aufrufen: "To a File" und dann: "Text file", hier die entsprechende Datei auswählen: ```pageviews-20210101-20260331```
 * Sind die Daten richtig geladen? Sind drei Spalten zu sehen. Wenn nicht, müssen [die Einstellungen angepasst werden](https://help.tableau.com/current/pro/desktop/en-gb/examples_text.htm#set-text-file-options).
-* Ist der Type der Spalte korrekt? Erste Spalte: Datum/dateGgf. [muss der Typ gewechselt werden](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
+* Ist der Type der Spalte korrekt? Erste Spalte: Datum/date. Hier muss mit einem Klick auf das kleine blaue Symbol [der Typ gewechselt werden](https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_datatypes.htm).
 
 Ungefähr so sehen Ergebnisse aus.
 
@@ -70,19 +72,19 @@ Ungefähr so sehen Ergebnisse aus.
 Als statistisches Bild über das Menu exportieren:
 
 ```
-Worksheet > Export > Image...
+Arbeitsblatt > Exportieren > Bild...
 ```
 
-Als ```.PNG``` speichern
+Als Bild (es wird automatisch ```.PNG``` gewählt) speichern, ggf. nach eigenem Bedarf anpassen.
 
 # In ein Präsentationsprogramm laden
-Der letzte Schritt besteht darin, die Zeitleiste mit Anmerkungen zu versehen. Das Ziel ist es, dem Leser durch kurze Erläuterungen zu helfen, die Spitzen bei den Seitenaufrufen zu verstehen. Folge [diesem Template](https://laserstefan.github.io/mapping-controversies/assets/data/1-1/MappingControversies_Annotation.pptx) in einem Slide-Programm. 
+Der letzte Schritt besteht darin, die Zeitleiste mit Anmerkungen zu versehen. Das Ziel ist es, Leser_innen durch kurze Erläuterungen zu helfen, die Spitzen bei den Seitenaufrufen zu verstehen. Folge [diesem Template](https://laserstefan.github.io/mapping-controversies/assets/data/1-1/MappingControversies_Annotation.pptx) in einem Slide-Programm. 
 
 [
 	![Partially annotated timeline in Google Slides](../assets/images/1-1/MappingControversies_AnnotationExamples_PageViews_SpaceBasedSolar.svg)
 ](../assets/images/1-1/MappingControversies_AnnotationExamples_PageViews_SpaceBasedSolar.svg)
 
-Ziel: Ausreißer ("Spikes") annotieren. Warum gibt es Ausschläge? 
+Ziel: Ausreißer ("Spikes") annotieren. Warum gibt es Ausschläge? Denke an die eigene Arbeitsgruppe: könnte hier hinsichtlich Risk oder Safety etwas für Arbeit, Bildung, Umwelt, Gewalt annotiert werden? Das ist eine Gedankenübung, muss also nicht 100% korrekt sein, aber für alle Gruppen finden sich Beispiele mit etwas recherche (siehe [die Contropedia](https://roaring-horse-7a6c46.netlify.app/network)). Diese grafischen Übersichten sind Beispiele dafür, wie man einen Einstieg in eine Kontroverse geben kann, um sie dann mit weiteren Daten (quantitativ, qualitativ; Online-Debatten, Interviews, etc. pp.) vertiefen könnte.
 
 <div class="notice--warning"><i class="fas fa-exclamation-triangle"></i>&nbsp;<b>WARNUNG:</b> Für einige der Spikes lässt sich ggf. in den Nachrichten keine schlüssige Erklärung finden. </div>
 
