@@ -22,9 +22,9 @@ Wir bleiben bei dem Thema KI-Risiken mit den beiden Artikeln
 
 CSV herunterladen:
 
-<center><a href="../assets/data/1-2/wikipedia-edits-1-2.csv">
+<center><a href="../assets/data/1-2/wikipedia-edits-tuto-1.2.csv">
 	<i class="fas fa-file-csv" style="font-size:5em"></i><br>
-	wikipedia-edits-1-2.csv
+	wikipedia-edits-tuto-1.2.csv
 </a><br><br></center>
 
 Die Datei zeigt Wikipedia-Edits und diverse Meta-Daten, erzeugt mit einem Notebook, das wir noch kennenlernen werden.
