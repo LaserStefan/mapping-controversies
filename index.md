@@ -14,8 +14,8 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 **Tools:** Contropedia, Tableau, Gephi, und [Jupyter Notebooks mit Python](nb/). Wir erschließen die Tools in den unteren Tutorials; keine weitere Vorerfahrungen sind notwendig.
 
 [
-	![Übersicht der Forschung im 2. Semester](../assets/images/Kontroverse_KI_Struktur.png)
-](../assets/images/Kontroverse_KI_Struktur.png)
+	![Übersicht der Forschung im 2. Semester](mapping-controversies/assets/images/Kontroverse_KI_Struktur.png)
+](mapping-controversies/assets/images/Kontroverse_KI_Struktur.png)
 
 (Mit Hilfe von Beck et al. (2026).)
 
@@ -80,7 +80,4 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 * [Oder diesen Bericht zur Obsoleszenz bei der Deutschen Bahn mit Twitter-Mappings](https://dspace.ub.uni-siegen.de/entities/publication/6bae9010-9b48-428c-b519-c565f75d80a1)
 
 ## Lizenz
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
-
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+CC BY-SA 4.0
