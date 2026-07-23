@@ -14,8 +14,8 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 **Tools:** Contropedia, Tableau, Gephi, und [Jupyter Notebooks mit Python](nb/). Wir erschließen die Tools in den unteren Tutorials; keine weitere Vorerfahrungen sind notwendig.
 
 [
-	![Übersicht der Forschung im 2. Semester](../assets/images/Kontroverse KI_Struktur.png)
-](../assets/images/Kontroverse KI_Struktur.png)
+	![Übersicht der Forschung im 2. Semester](../assets/images/Kontroverse_KI_Struktur.png)
+](../assets/images/Kontroverse_KI_Struktur.png)
 
 (Mit Hilfe von Beck et al. (2026).)
 
