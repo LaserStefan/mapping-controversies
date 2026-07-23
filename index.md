@@ -21,7 +21,6 @@ Diese Website führt in grundlegende Methoden des Kontroversen-Mappings ein. Die
 
 
 ## Übersicht des Workflows
-## Übersicht des Workflows
 
 - Kontroverse als leitende Problematik
   - hot statt cold, evtl. über Archive erschließen
